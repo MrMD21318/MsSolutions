@@ -42,8 +42,8 @@ function initTables() {
 
         // Seed initial admin user if not exists (admin/admin123)
         // IN REAL APP: Password should be hashed (e.g., bcrypt)
-        const insert = 'INSERT OR IGNORE INTO users (username, password) VALUES (?, ?)';
-        db.run(insert, ["admin", "admin123"]);
+        const insert = 'INSERT OR REPLACE INTO users (id, username, password) VALUES (1, ?, ?)';
+        db.run(insert, ["mohdabuhammad", "Mohd97!@!@"]);
     });
 }
 
