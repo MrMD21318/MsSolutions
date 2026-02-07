@@ -30,7 +30,7 @@ function GlowingOrb({ position, color, size = 1 }: { position: [number, number, 
 
 // Interactive Mouse Particles
 function MouseParticles() {
-    const count = 80; // Reduced from 150
+    const count = 40; // Reduced for performance
     const meshRef = useRef<THREE.InstancedMesh>(null);
     const lightRef = useRef<THREE.PointLight>(null);
     const followerRef = useRef<THREE.Group>(null);
@@ -157,7 +157,7 @@ const Scene3D: React.FC = () => {
             left: 0,
             width: '100%',
             height: '100%',
-            zIndex: 0, // Ensure it is not behind the body
+            zIndex: -1, // Ensure it is behind everything
             pointerEvents: 'none',
             background: 'linear-gradient(135deg, #0a0e17 0%, #0f172a 50%, #1e1b4b 100%)', // Moved from body
         }}>

@@ -46,6 +46,7 @@ const Contact: React.FC = () => {
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.1 }}
                     style={{ textAlign: 'center', marginBottom: '3rem' }}
                 >
                     <h2 style={{ fontSize: '2.5rem', fontWeight: 700, color: 'white', marginBottom: '1rem' }}>

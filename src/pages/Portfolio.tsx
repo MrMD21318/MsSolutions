@@ -64,7 +64,8 @@ const Portfolio: React.FC = () => {
                 <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    style={{ textAlign: 'center', marginBottom: '3rem' }}
+                    style={{ width: '100%', textAlign: 'center', marginBottom: '3rem' }}
+                    viewport={{ once: true, amount: 0.1 }}
                 >
                     <h2 style={{ fontSize: '2.5rem', fontWeight: 700, color: 'white', marginBottom: '1rem' }}>
                         {t('portfolio.title')}
@@ -142,7 +143,7 @@ const Portfolio: React.FC = () => {
                     ))}
                 </div>
             </div>
-        </section>
+        </section >
     );
 };
 
