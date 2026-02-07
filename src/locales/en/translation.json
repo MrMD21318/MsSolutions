@@ -1,0 +1,192 @@
+{
+    "navbar": {
+        "home": "Home",
+        "about": "About",
+        "services": "Services",
+        "portfolio": "Portfolio",
+        "contact": "Contact",
+        "language": "AR",
+        "getStarted": "Get Started"
+    },
+    "hero": {
+        "badge": "Technology Innovation Hub",
+        "title_parts": {
+            "p1": "Building",
+            "p2": "Intelligent",
+            "p3": "Digital Systems"
+        },
+        "subtitle": "Future-ready Web Development, AI Solutions, and Enterprise Systems.",
+        "cta": "Explore Solutions",
+        "stats": {
+            "years": "Years Experience",
+            "projects": "Projects Delivered",
+            "clients": "Happy Clients"
+        }
+    },
+    "about": {
+        "title": "About MS Solutions",
+        "description": "We are a technology innovation hub focused on transforming businesses through scalable web architecture, smart automation, and AI-driven workflows.",
+        "mission": {
+            "title": "Our Mission",
+            "desc": "To empower businesses with cutting-edge digital tools that drive efficiency and growth."
+        },
+        "vision": {
+            "title": "Our Vision",
+            "desc": "To be the leading catalyst for digital transformation in the Middle East and beyond."
+        },
+        "values": {
+            "title": "Core Values",
+            "items": [
+                "Innovation",
+                "Integrity",
+                "Excellence",
+                "Security"
+            ]
+        },
+        "features": {
+            "title_p1": "Why Choose",
+            "title_p2": "Us?",
+            "list": {
+                "precision": {
+                    "title": "Precision",
+                    "desc": "Pixel-perfect execution in every project."
+                },
+                "speed": {
+                    "title": "Speed",
+                    "desc": "Optimized performance for seamless experiences."
+                },
+                "security": {
+                    "title": "Security",
+                    "desc": "Enterprise-grade protection for your data."
+                },
+                "user_centric": {
+                    "title": "User-Centric",
+                    "desc": "Designs that prioritize user experience."
+                },
+                "innovation": {
+                    "title": "Innovation",
+                    "desc": "Cutting-edge technologies and solutions."
+                },
+                "excellence": {
+                    "title": "Excellence",
+                    "desc": "Award-winning quality in every deliverable."
+                }
+            }
+        }
+    },
+    "services": {
+        "title": "Our Expertise",
+        "subtitle": "Comprehensive technology solutions tailored for modern enterprises.",
+        "web_dev": "Web Development",
+        "web_dev_desc": "High-performance websites and web applications built with the latest technologies.",
+        "ecommerce": "E-Commerce Solutions",
+        "ecommerce_desc": "Scalable online stores with seamless payment integrations and user-centric designs.",
+        "systems": "System Solutions",
+        "systems_desc": "Custom ERPs for Accounting, Logistics, Clinics, and Retail Management.",
+        "ai": "AI Solutions",
+        "ai_desc": "Smart AI Agents, Chatbots, and automated workflows to optimize operations."
+    },
+    "portfolio": {
+        "title": "Selected Works",
+        "subtitle": "A showcase of our impact across various industries.",
+        "projects": {
+            "restaurant": {
+                "title": "Restaurant System",
+                "category": "Gourmet Dining",
+                "tags": "Reservation System, Menu"
+            },
+            "clinic": {
+                "title": "Medical Clinic",
+                "category": "Healthcare",
+                "tags": "Appointment, Patient Portal"
+            },
+            "university": {
+                "title": "University Portal",
+                "category": "Education",
+                "tags": "Student System, LMS"
+            },
+            "supermarket": {
+                "title": "Supermarket Chain",
+                "category": "Retail",
+                "tags": "Inventory, POS"
+            },
+            "company": {
+                "title": "Corporate Website",
+                "category": "Business",
+                "tags": "Branding, Corporate"
+            },
+            "agency": {
+                "title": "Social Media Agency",
+                "category": "Creative",
+                "tags": "Analytics, Campaigns"
+            }
+        }
+    },
+    "contact": {
+        "title": "Get in Touch",
+        "subtitle": "Ready to transform your business? Let's discuss your project.",
+        "name": "Name",
+        "email": "Email",
+        "message": "Message",
+        "send": "Send Message",
+        "whatsapp": "+962 79587 3457",
+        "headquarters": "Headquarters",
+        "address": "Dubai Silicon Oasis, UAE",
+        "placeholders": {
+            "name": "John Doe",
+            "email": "john@example.com",
+            "message": "Tell us about your project..."
+        }
+    },
+    "footer": {
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Service",
+        "rights": "All rights reserved."
+    },
+    "privacy": {
+        "title": "Privacy Policy",
+        "lastUpdated": "Last Updated: February 2026",
+        "intro": "At MS Solutions, we value your privacy. This policy explains how we collect, use, and protect your personal information.",
+        "sections": [
+            {
+                "heading": "1. Information We Collect",
+                "content": "We collect information you provide directly to us, such as when you fill out a contact form, request a demo, or communicate with us. This may include your name, email address, phone number, and company name."
+            },
+            {
+                "heading": "2. How We Use Information",
+                "content": "We use the information we collect to provide, maintain, and improve our services, to respond to your comments and questions, and to send you related information, including confirmations and updates."
+            },
+            {
+                "heading": "3. Data Security",
+                "content": "We implement appropriate technical and organizational measures to protect the security of your personal information."
+            },
+            {
+                "heading": "4. Contact Us",
+                "content": "If you have any questions about this Privacy Policy, please contact us at info@msforsolutions.com."
+            }
+        ]
+    },
+    "terms": {
+        "title": "Terms of Service",
+        "lastUpdated": "Last Updated: February 2026",
+        "intro": "Please read these Terms of Service carefully before using our website and services operated by MS Solutions.",
+        "sections": [
+            {
+                "heading": "1. Acceptance of Terms",
+                "content": "By accessing or using our service, you agree to be bound by these terms. If you disagree with any part of the terms, then you may not access the service."
+            },
+            {
+                "heading": "2. Intellectual Property",
+                "content": "The service and its original content, features, and functionality are and will remain the exclusive property of MS Solutions and its licensors."
+            },
+            {
+                "heading": "3. Links To Other Web Sites",
+                "content": "Our service may contain links to third-party web sites or services that are not owned or controlled by MS Solutions."
+            },
+            {
+                "heading": "4. Changes",
+                "content": "We reserve the right, at our sole discretion, to modify or replace these Terms at any time."
+            }
+        ]
+    }
+}
