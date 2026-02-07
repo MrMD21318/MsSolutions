@@ -3,13 +3,46 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const db = require('./database.cjs');
 
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+
 const app = express();
 const PORT = 3001;
+const JWT_SECRET = 'your-secret-key-change-in-production'; // In prod, use ENV var
 
-app.use(cors());
+// Security Middleware
+app.use(helmet());
+app.use(cors({
+    origin: 'http://localhost:5173', // Restrict to frontend origin
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(bodyParser.json());
 
-// Log Visit
+// Rate Limiting
+const limiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100 // limit each IP to 100 requests per windowMs
+});
+app.use(limiter);
+
+// Auth Middleware
+const authenticateToken = (req, res, next) => {
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
+
+    if (!token) return res.sendStatus(401);
+
+    jwt.verify(token, JWT_SECRET, (err, user) => {
+        if (err) return res.sendStatus(403);
+        req.user = user;
+        next();
+    });
+};
+
+// Log Visit (Public)
 app.post('/api/visits', (req, res) => {
     const { page } = req.body;
     const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
@@ -18,15 +51,16 @@ app.post('/api/visits', (req, res) => {
     const sql = 'INSERT INTO visits (page, ip, userAgent) VALUES (?, ?, ?)';
     db.run(sql, [page, ip, userAgent], function (err) {
         if (err) {
-            res.status(500).json({ error: err.message });
+            console.error("Error logging visit:", err.message);
+            res.status(500).json({ error: "Internal Server Error" }); // Don't leak SQL errors
             return;
         }
         res.json({ message: 'Visit logged', id: this.lastID });
     });
 });
 
-// Get Visit Stats
-app.get('/api/stats', (req, res) => {
+// Get Visit Stats (Protected)
+app.get('/api/stats', authenticateToken, (req, res) => {
     const today = new Date().toISOString().split('T')[0];
 
     // Total Visits
@@ -61,21 +95,26 @@ app.get('/api/stats', (req, res) => {
     });
 });
 
-// Save Contact Message
+// Save Contact Message (Public)
 app.post('/api/contact', (req, res) => {
     const { name, email, message } = req.body;
+    // Basic Input Validation
+    if (!name || !email || !message) {
+        return res.status(400).json({ error: "All fields are required" });
+    }
+
     const sql = 'INSERT INTO messages (name, email, message) VALUES (?, ?, ?)';
     db.run(sql, [name, email, message], function (err) {
         if (err) {
-            res.status(500).json({ error: err.message });
+            res.status(500).json({ error: "Internal Server Error" });
             return;
         }
         res.json({ message: 'Message sent', id: this.lastID });
     });
 });
 
-// Get Messages
-app.get('/api/messages', (req, res) => {
+// Get Messages (Protected)
+app.get('/api/messages', authenticateToken, (req, res) => {
     const sql = 'SELECT * FROM messages ORDER BY timestamp DESC';
     db.all(sql, [], (err, rows) => {
         if (err) {
@@ -89,14 +128,21 @@ app.get('/api/messages', (req, res) => {
 // Admin Login
 app.post('/api/login', (req, res) => {
     const { username, password } = req.body;
-    const sql = 'SELECT * FROM users WHERE username = ? AND password = ?';
-    db.get(sql, [username, password], (err, row) => {
+    const sql = 'SELECT * FROM users WHERE username = ?';
+    db.get(sql, [username], (err, row) => {
         if (err) {
-            res.status(500).json({ error: err.message });
+            res.status(500).json({ error: "Internal Server Error" });
             return;
         }
         if (row) {
-            res.json({ message: 'Login successful', user: { username: row.username } });
+            // Compare hashed password
+            const validPassword = bcrypt.compareSync(password, row.password);
+            if (validPassword) {
+                const token = jwt.sign({ username: row.username }, JWT_SECRET, { expiresIn: '1h' });
+                res.json({ message: 'Login successful', token, user: { username: row.username } });
+            } else {
+                res.status(401).json({ error: 'Invalid credentials' });
+            }
         } else {
             res.status(401).json({ error: 'Invalid credentials' });
         }

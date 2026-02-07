@@ -1,5 +1,5 @@
 import React from 'react';
-import { Utensils, Star, Clock, MapPin, ChefHat, Coffee, Calendar, Users, ArrowRight } from 'lucide-react';
+import { Utensils, Star, Clock, ChefHat, Calendar, Users, ArrowRight } from 'lucide-react';
 import DemoNavbar from '../../../components/demos/DemoNavbar';
 import DemoFooter from '../../../components/demos/DemoFooter';
 import { motion } from 'framer-motion';
@@ -11,7 +11,7 @@ const RestaurantDemo: React.FC = () => {
         <div style={{ fontFamily: '"Playfair Display", serif', background: '#fffbeb', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
             <DemoNavbar
                 name="Le Gourmet"
-                links={["Menu", "Reservations", "Events", "About"]}
+                links={[{ name: "Menu", path: "#menu" }, { name: "Reservations", path: "#reservations" }, { name: "Events", path: "#events" }, { name: "Contact", path: "#contact" }]}
                 color={color}
                 logoIcon={<ChefHat size={32} />}
             />

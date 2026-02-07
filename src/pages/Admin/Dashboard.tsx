@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { Users, MessageSquare, Clock, LogOut } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
@@ -30,7 +30,14 @@ const Dashboard: React.FC = () => {
 
     const fetchStats = async () => {
         try {
-            const res = await fetch('http://localhost:3001/api/stats');
+            const token = localStorage.getItem('token');
+            const res = await fetch('http://localhost:3001/api/stats', {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            if (res.status === 401 || res.status === 403) {
+                handleLogout();
+                return;
+            }
             const data = await res.json();
             setStats(data);
         } catch (error) {
@@ -40,7 +47,14 @@ const Dashboard: React.FC = () => {
 
     const fetchMessages = async () => {
         try {
-            const res = await fetch('http://localhost:3001/api/messages');
+            const token = localStorage.getItem('token');
+            const res = await fetch('http://localhost:3001/api/messages', {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            if (res.status === 401 || res.status === 403) {
+                handleLogout();
+                return;
+            }
             const data = await res.json();
             setMessages(data.messages);
         } catch (error) {
@@ -49,7 +63,8 @@ const Dashboard: React.FC = () => {
     };
 
     const handleLogout = () => {
-        localStorage.removeItem('adminAuth');
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
         navigate('/admin/login');
     };
 

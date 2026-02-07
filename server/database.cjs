@@ -1,5 +1,6 @@
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
+const bcrypt = require('bcryptjs');
 
 const dbPath = path.resolve(__dirname, 'database.sqlite');
 
@@ -42,8 +43,15 @@ function initTables() {
 
         // Seed initial admin user if not exists (admin/admin123)
         // IN REAL APP: Password should be hashed (e.g., bcrypt)
+        const bcrypt = require('bcryptjs');
+
+        // ... (existing code)
+
+        // Seed initial admin user if not exists (admin/admin123)
+        // Password is now hashed
         const insert = 'INSERT OR REPLACE INTO users (id, username, password) VALUES (1, ?, ?)';
-        db.run(insert, ["mohdabuhammad", "Mohd97!@!@"]);
+        const hashedPassword = bcrypt.hashSync("Mohd97!@!@", 10);
+        db.run(insert, ["mohdabuhammad", hashedPassword]);
     });
 }
 

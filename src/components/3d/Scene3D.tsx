@@ -1,89 +1,9 @@
 import React, { useRef, useMemo, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Float, Stars } from '@react-three/drei';
+import { Stars } from '@react-three/drei';
 import * as THREE from 'three';
 
-// Animated floating geometric shapes
-function FloatingGeometry({ position, shape, color, speed = 1 }: { position: [number, number, number], shape: 'box' | 'sphere' | 'octahedron' | 'torus', color: string, speed?: number }) {
-    const meshRef = useRef<THREE.Mesh>(null);
-
-    useFrame((state) => {
-        if (meshRef.current) {
-            meshRef.current.rotation.x = state.clock.elapsedTime * 0.2 * speed;
-            meshRef.current.rotation.y = state.clock.elapsedTime * 0.3 * speed;
-        }
-    });
-
-    const geometry = useMemo(() => {
-        switch (shape) {
-            case 'box': return new THREE.BoxGeometry(0.8, 0.8, 0.8);
-            case 'sphere': return new THREE.SphereGeometry(0.5, 32, 32);
-            case 'octahedron': return new THREE.OctahedronGeometry(0.6);
-            case 'torus': return new THREE.TorusGeometry(0.4, 0.15, 16, 32);
-            default: return new THREE.BoxGeometry(0.8, 0.8, 0.8);
-        }
-    }, [shape]);
-
-    return (
-        <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
-            <mesh ref={meshRef} position={position} geometry={geometry}>
-                <meshStandardMaterial
-                    color={color}
-                    transparent
-                    opacity={0.6}
-                    wireframe
-                    emissive={color}
-                    emissiveIntensity={0.3}
-                />
-            </mesh>
-        </Float>
-    );
-}
-
-// Animated particle field
-function ParticleField() {
-    const particlesRef = useRef<THREE.Points>(null);
-    const count = 400; // Reduced from 800
-
-    const [positions] = useMemo(() => {
-        const positions = new Float32Array(count * 3);
-        for (let i = 0; i < count; i++) {
-            positions[i * 3] = (Math.random() - 0.5) * 20;
-            positions[i * 3 + 1] = (Math.random() - 0.5) * 20;
-            positions[i * 3 + 2] = (Math.random() - 0.5) * 20;
-        }
-        return [positions];
-    }, []);
-
-    useFrame((state) => {
-        if (particlesRef.current) {
-            particlesRef.current.rotation.y = state.clock.elapsedTime * 0.02;
-            particlesRef.current.rotation.x = state.clock.elapsedTime * 0.01;
-        }
-    });
-
-    return (
-        <points ref={particlesRef}>
-            <bufferGeometry>
-                <bufferAttribute
-                    attach="attributes-position"
-                    count={count}
-                    array={positions}
-                    itemSize={3}
-                />
-            </bufferGeometry>
-            <pointsMaterial
-                size={0.03}
-                color="#06b6d4"
-                transparent
-                opacity={0.6}
-                sizeAttenuation
-            />
-        </points>
-    );
-}
-
-// Glowing orb
+// FloatingGeometry and ParticleField removed to fix unused variable errors
 function GlowingOrb({ position, color, size = 1 }: { position: [number, number, number], color: string, size?: number }) {
     const meshRef = useRef<THREE.Mesh>(null);
 

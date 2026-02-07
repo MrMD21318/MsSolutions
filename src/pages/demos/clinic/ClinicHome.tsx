@@ -1,6 +1,7 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ShieldCheck, Phone, Users, ArrowRight } from 'lucide-react';
+import { ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const ClinicHome: React.FC = () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Library, Globe, Users, FlaskConical, Gavel, Stethoscope } from 'lucide-react';
+import { Library, FlaskConical, Gavel, Stethoscope } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const UniversityFaculties: React.FC = () => {
@@ -27,7 +27,8 @@ const UniversityFaculties: React.FC = () => {
                         <motion.div
                             key={i}
                             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: i * 0.1 }}
-                            style={{ cursor: 'pointer', group: 'card' }}
+                            style={{ cursor: 'pointer' }}
+                            className="group"
                         >
                             <div style={{ height: '300px', overflow: 'hidden', borderRadius: '8px', marginBottom: '1.5rem', position: 'relative' }}>
                                 <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.4)', transition: 'background 0.3s', zIndex: 1 }}></div>

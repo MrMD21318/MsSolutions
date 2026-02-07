@@ -1,5 +1,5 @@
 import React from 'react';
-import { Camera, Zap, Share2, Award, Play, ArrowUpRight, Aperture, Layers } from 'lucide-react';
+import { Camera, Share2, ArrowUpRight, Aperture, Layers } from 'lucide-react';
 import DemoNavbar from '../../../components/demos/DemoNavbar';
 import DemoFooter from '../../../components/demos/DemoFooter';
 import { motion } from 'framer-motion';
@@ -11,7 +11,7 @@ const AgencyDemo: React.FC = () => {
         <div style={{ fontFamily: '"Space Grotesk", sans-serif', background: 'black', color: 'white', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
             <DemoNavbar
                 name="Viral Agency"
-                links={["Work", "Services", "Studio", "Contact"]}
+                links={[{ name: "Work", path: "#work" }, { name: "Services", path: "#services" }, { name: "Studio", path: "#studio" }, { name: "Contact", path: "#contact" }]}
                 color={color}
                 logoIcon={<Camera size={32} />}
             />

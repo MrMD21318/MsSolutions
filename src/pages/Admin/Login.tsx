@@ -19,7 +19,9 @@ const Login: React.FC = () => {
             });
 
             if (response.ok) {
-                localStorage.setItem('adminAuth', 'true');
+                const data = await response.json();
+                localStorage.setItem('token', data.token);
+                localStorage.setItem('user', JSON.stringify(data.user));
                 navigate('/admin/dashboard');
             } else {
                 setError('Invalid credentials');

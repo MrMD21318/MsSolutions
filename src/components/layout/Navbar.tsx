@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Menu, X, Globe } from 'lucide-react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useDigitalSound } from '../../hooks/useDigitalSound';
 // @ts-ignore

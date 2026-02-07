@@ -1,5 +1,6 @@
+
 import React from 'react';
-import { Phone, Clock } from 'lucide-react';
+import { Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const ClinicAppointment: React.FC = () => {

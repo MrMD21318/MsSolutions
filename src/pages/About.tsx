@@ -118,10 +118,10 @@ const About: React.FC = () => {
                             <h3 style={{ fontSize: '1.5rem', fontWeight: 700, color: 'white', marginBottom: '1rem' }}>{item.title}</h3>
                             {item.isList ? (
                                 <ul style={{ paddingLeft: '1.2rem', color: '#9ca3af', lineHeight: 1.6 }}>
-                                    {(item.desc as unknown as string[]).map((val, i) => <li key={i}>{val}</li>)}
+                                    {(item.desc as any).map((val: string, i: number) => <li key={i}>{val}</li>)}
                                 </ul>
                             ) : (
-                                <p style={{ color: '#9ca3af', lineHeight: 1.6 }}>{item.desc}</p>
+                                <p style={{ color: '#9ca3af', lineHeight: 1.6 }}>{item.desc as string}</p>
                             )}
                         </motion.div>
                     ))}

@@ -1,6 +1,7 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Star, ChefHat, Coffee, MapPin, Clock, Quote } from 'lucide-react';
+import { ArrowLeft, Star, ChefHat, Coffee, Quote } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const RestaurantHome: React.FC = () => {
@@ -60,7 +61,7 @@ const RestaurantHome: React.FC = () => {
                             whileHover={{ scale: 1.05, backgroundColor: '#fff', color: color }}
                             whileTap={{ scale: 0.95 }}
                             style={{
-                                background: color, color: 'white', padding: '1.25rem 3.5rem', fontSize: '1.125rem', border: `2px solid ${color}`,
+                                background: color, color: 'white', padding: '1.25rem 3.5rem', fontSize: '1.125rem', border: `2px solid ${color} `,
                                 cursor: 'pointer', fontFamily: '"Cairo", sans-serif', borderRadius: '0', fontWeight: 700, transition: 'all 0.3s'
                             }}
                         >
@@ -110,7 +111,7 @@ const RestaurantHome: React.FC = () => {
                         transition={{ duration: 0.8 }}
                         style={{ position: 'relative' }}
                     >
-                        <div style={{ position: 'absolute', top: '-20px', left: '-20px', width: '100%', height: '100%', border: `2px solid ${color}`, zIndex: 0 }}></div>
+                        <div style={{ position: 'absolute', top: '-20px', left: '-20px', width: '100%', height: '100%', border: `2px solid ${color} `, zIndex: 0 }}></div>
                         <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80" alt="Signature" style={{ width: '100%', borderRadius: '0', position: 'relative', zIndex: 1, boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }} />
                     </motion.div>
                     <motion.div
@@ -124,7 +125,7 @@ const RestaurantHome: React.FC = () => {
                         <p style={{ fontSize: '1.25rem', color: '#78350f', lineHeight: 1.8, marginBottom: '2.5rem' }}>
                             قطعة فاخرة (250 غرام) من اللحم البقري الصافي، تُشوى ببطء لتصل إلى درجة الكمال، تُقدم مع صلصة الترافل الأسود وهريس البطاطس الكريمي.
                         </p>
-                        <Link to="/demo/restaurant/menu" style={{ color: color, textDecoration: 'none', fontSize: '1.125rem', display: 'inline-flex', alignItems: 'center', gap: '0.75rem', fontWeight: 700, borderBottom: `2px solid ${color}`, paddingBottom: '0.25rem' }}>
+                        <Link to="/demo/restaurant/menu" style={{ color: color, textDecoration: 'none', fontSize: '1.125rem', display: 'inline-flex', alignItems: 'center', gap: '0.75rem', fontWeight: 700, borderBottom: `2px solid ${color} `, paddingBottom: '0.25rem' }}>
                             اكتشف القائمة الكاملة <ArrowLeft size={20} />
                         </Link>
                     </motion.div>

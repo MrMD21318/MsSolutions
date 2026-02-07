@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { ExternalLink } from 'lucide-react';
+// import { ArrowRight, Github, Code, Layers } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Portfolio: React.FC = () => {

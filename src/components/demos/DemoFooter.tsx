@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Phone, MapPin, Globe, User, Link as LinkIcon, Send } from 'lucide-react';
+import { Globe, User, Link as LinkIcon } from 'lucide-react';
 
 interface DemoFooterProps {
     name: string;

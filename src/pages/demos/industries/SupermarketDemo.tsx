@@ -1,8 +1,8 @@
 import React from 'react';
-import { ShoppingCart, Search, Tag, Apple, Milk, Wheat, Beef, ArrowRight, Star } from 'lucide-react';
+import { ShoppingCart, Search, Tag, Apple, Milk, Wheat, Beef, Star } from 'lucide-react';
 import DemoNavbar from '../../../components/demos/DemoNavbar';
 import DemoFooter from '../../../components/demos/DemoFooter';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 
 const SupermarketDemo: React.FC = () => {
     const color = "#16a34a"; // Green-600
@@ -11,7 +11,7 @@ const SupermarketDemo: React.FC = () => {
         <div style={{ fontFamily: '"Inter", sans-serif', background: '#f9fafb', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
             <DemoNavbar
                 name="FreshMart"
-                links={["Shop", "Deals", "Recipes", "Stores"]}
+                links={[{ name: "Weekly Deals", path: "#deals" }, { name: "Departments", path: "#departments" }, { name: "Loyalty", path: "#loyalty" }, { name: "Locations", path: "#locations" }]}
                 color={color}
                 logoIcon={<Apple size={32} />}
             />

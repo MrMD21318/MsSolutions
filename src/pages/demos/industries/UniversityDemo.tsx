@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, GraduationCap, Users, Award, Globe, Library, Calendar } from 'lucide-react';
+import { BookOpen, GraduationCap, Users, Award, Globe, Library, ArrowRight } from 'lucide-react';
 import DemoNavbar from '../../../components/demos/DemoNavbar';
 import DemoFooter from '../../../components/demos/DemoFooter';
 import { motion } from 'framer-motion';
@@ -11,7 +11,7 @@ const UniversityDemo: React.FC = () => {
         <div style={{ fontFamily: '"Georgia", serif', background: '#fdf4ff', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
             <DemoNavbar
                 name="EduTech Univ"
-                links={["Academics", "Admissions", "Campus", "Research"]}
+                links={[{ name: "Academics", path: "#academics" }, { name: "Admissions", path: "#admissions" }, { name: "Campus", path: "#campus" }, { name: "Research", path: "#research" }]}
                 color={color}
                 logoIcon={<GraduationCap size={32} />}
             />
@@ -81,7 +81,7 @@ const UniversityDemo: React.FC = () => {
                             { title: "Science & Technology", icon: <Globe size={40} />, img: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&q=80" },
                             { title: "Business & Law", icon: <Users size={40} />, img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80" }
                         ].map((faculty, i) => (
-                            <div key={i} style={{ group: 'card', cursor: 'pointer' }}>
+                            <div key={i} className="group" style={{ cursor: 'pointer' }}>
                                 <div style={{ height: '240px', overflow: 'hidden', borderRadius: '8px', marginBottom: '1.5rem', position: 'relative' }}>
                                     <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.3)', transition: 'background 0.3s' }}></div>
                                     <img src={faculty.img} alt={faculty.title} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s' }} />

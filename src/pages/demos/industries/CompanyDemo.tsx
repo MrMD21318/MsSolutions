@@ -1,5 +1,5 @@
 import React from 'react';
-import { Briefcase, Building, BarChart, Globe, Zap, Users, ArrowRight, CheckCircle } from 'lucide-react';
+import { Building, BarChart3, Globe, CheckCircle, Briefcase, Zap } from 'lucide-react';
 import DemoNavbar from '../../../components/demos/DemoNavbar';
 import DemoFooter from '../../../components/demos/DemoFooter';
 import { motion } from 'framer-motion';
@@ -11,7 +11,7 @@ const CompanyDemo: React.FC = () => {
         <div style={{ fontFamily: '"Inter", sans-serif', background: 'white', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
             <DemoNavbar
                 name="Corporate Pro"
-                links={["Solutions", "About", "Insights", "Careers"]}
+                links={[{ name: "About", path: "#about" }, { name: "Solutions", path: "#solutions" }, { name: "Clients", path: "#clients" }, { name: "Contact", path: "#contact" }]}
                 color={color}
                 logoIcon={<Building size={32} />}
             />
@@ -85,7 +85,7 @@ const CompanyDemo: React.FC = () => {
                         </div>
                         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
                             {[
-                                { title: "Analytics", icon: <BarChart size={32} /> },
+                                { title: "Analytics", icon: <BarChart3 size={32} /> },
                                 { title: "Consulting", icon: <Briefcase size={32} /> },
                                 { title: "Innovation", icon: <Zap size={32} /> },
                                 { title: "Global", icon: <Globe size={32} /> }

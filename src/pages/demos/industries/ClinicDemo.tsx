@@ -11,7 +11,7 @@ const ClinicDemo: React.FC = () => {
         <div style={{ fontFamily: '"Inter", sans-serif', background: '#f0f9ff', minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
             <DemoNavbar
                 name="MediCare Plus"
-                links={["Services", "Doctors", "Appointments", "Contact"]}
+                links={[{ name: "Services", path: "#services" }, { name: "Doctors", path: "#doctors" }, { name: "Patients", path: "#patients" }, { name: "Contact", path: "#contact" }]}
                 color={color}
                 logoIcon={<Activity size={32} />}
             />

@@ -4,7 +4,7 @@ import { Points, PointMaterial, Float, Stars } from '@react-three/drei';
 // import * as random from 'maath/random';
 
 function Particles(props: any) {
-    const ref = useRef<any>();
+    const ref = useRef<any>(null);
     // Generate random points manually to avoid maath dependency issues
     const sphere = new Float32Array(5000);
     for (let i = 0; i < 5000; i++) {
@@ -12,7 +12,7 @@ function Particles(props: any) {
     }
 
 
-    useFrame((state, delta) => {
+    useFrame((_, delta) => {
         if (ref.current) {
             ref.current.rotation.x -= delta / 10;
             ref.current.rotation.y -= delta / 15;
@@ -32,11 +32,6 @@ function Particles(props: any) {
             </Points>
         </group>
     );
-}
-
-function Connections() {
-    // Detailed mesh wireframe or similar could go here
-    return null;
 }
 
 const HeroScene: React.FC = () => {

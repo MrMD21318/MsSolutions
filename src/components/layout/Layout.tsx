@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import Scene3D from '../3d/Scene3D';
 
 interface LayoutProps {
     children: React.ReactNode;

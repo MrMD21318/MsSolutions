@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Globe, User, Link as LinkIcon, Mail, MapPin, Phone } from 'lucide-react';
+import { Globe, User, Link as LinkIcon, Mail, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 // @ts-ignore
 import logo from '../../assets/logo.png';

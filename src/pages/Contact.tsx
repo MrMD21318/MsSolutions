@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { Mail, MapPin, Send, MessageCircle } from 'lucide-react';
+import { Mail, Send, MessageCircle } from 'lucide-react';
 
 const Contact: React.FC = () => {
     const { t } = useTranslation();
