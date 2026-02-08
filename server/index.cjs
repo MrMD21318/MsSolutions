@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const db = require('./database.cjs');
+const path = require('path');
 
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
