@@ -49,8 +49,8 @@ function initTables() {
 
         // Seed initial admin user if not exists (admin/admin123)
         // Password is now hashed
+        const hashedPassword = bcrypt.hashSync("admin123", 10);
         const insert = 'INSERT OR REPLACE INTO users (id, username, password) VALUES (1, ?, ?)';
-        const hashedPassword = bcrypt.hashSync("Mohd97!@!@", 10);
         db.run(insert, ["mohdabuhammad", hashedPassword]);
     });
 }
