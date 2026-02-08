@@ -128,15 +128,22 @@ app.get('/api/messages', authenticateToken, (req, res) => {
 // Admin Login
 app.post('/api/login', (req, res) => {
     const { username, password } = req.body;
+    console.log(`[LOGIN ATTEMPT] Username: ${username}, Password provided: ${password}`); // DEBUG
+
     const sql = 'SELECT * FROM users WHERE username = ?';
     db.get(sql, [username], (err, row) => {
         if (err) {
+            console.error("[LOGIN ERROR] DB Error:", err);
             res.status(500).json({ error: "Internal Server Error" });
             return;
         }
         if (row) {
+            console.log(`[LOGIN] User found: ${row.username}, Hash in DB: ${row.password}`); // DEBUG
+
             // Compare hashed password
             const validPassword = bcrypt.compareSync(password, row.password);
+            console.log(`[LOGIN] Password valid? ${validPassword}`); // DEBUG
+
             if (validPassword) {
                 const token = jwt.sign({ username: row.username }, JWT_SECRET, { expiresIn: '1h' });
                 res.json({ message: 'Login successful', token, user: { username: row.username } });
@@ -144,6 +151,7 @@ app.post('/api/login', (req, res) => {
                 res.status(401).json({ error: 'Invalid credentials' });
             }
         } else {
+            console.log(`[LOGIN] User NOT found: ${username}`); // DEBUG
             res.status(401).json({ error: 'Invalid credentials' });
         }
     });
@@ -172,7 +180,7 @@ app.get('/api/fix-db', (req, res) => {
 app.use(express.static(path.join(__dirname, '../dist')));
 
 // Handle React Routing, return all requests to React app
-app.get('*', (req, res) => {
+app.get(/.*/, (req, res) => {
     res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
 
