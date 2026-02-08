@@ -150,24 +150,30 @@ app.post('/api/login', (req, res) => {
 });
 
 // DEBUG: Force Password Reset (Temporary)
+const path = require('path');
+
+// Helper to confirm database fix
 app.get('/api/fix-db', (req, res) => {
+    // ... (existing code for fix-db) ...
     const hashedPassword = bcrypt.hashSync("admin123", 10);
     const sql = "UPDATE users SET password = ? WHERE username = 'mohdabuhammad'";
-
     // Also try to insert if not exists
     const insertSQL = "INSERT OR IGNORE INTO users (id, username, password) VALUES (1, 'mohdabuhammad', ?)";
-
     db.run(insertSQL, [hashedPassword], function (err) {
         if (err) return res.status(500).json({ step: 'insert', error: err.message });
-
         db.run(sql, [hashedPassword], function (err) {
             if (err) return res.status(500).json({ step: 'update', error: err.message });
-            res.json({
-                success: true,
-                message: "Database fixed! Password reset to 'admin123'. Changes: " + this.changes
-            });
+            res.json({ success: true, message: "Database fixed! Password reset to 'admin123'. Changes: " + this.changes });
         });
     });
+});
+
+// Serve Frontend Static Files
+app.use(express.static(path.join(__dirname, '../dist')));
+
+// Handle React Routing, return all requests to React app
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
 
 app.listen(PORT, () => {
