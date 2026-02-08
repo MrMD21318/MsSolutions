@@ -47,20 +47,35 @@ const authenticateToken = (req, res, next) => {
     });
 };
 
-// Log Visit (Public)
+// Log Visit (Public) - Unique per IP per day
 app.post('/api/visits', (req, res) => {
     const { page } = req.body;
     const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
     const userAgent = req.headers['user-agent'];
 
-    const sql = 'INSERT INTO visits (page, ip, userAgent) VALUES (?, ?, ?)';
-    db.run(sql, [page, ip, userAgent], function (err) {
+    // Check if this IP has already visited today
+    const checkSql = "SELECT id FROM visits WHERE ip = ? AND date(timestamp) = date('now')";
+    db.get(checkSql, [ip], (err, row) => {
         if (err) {
-            console.error("Error logging visit:", err.message);
-            res.status(500).json({ error: "Internal Server Error" }); // Don't leak SQL errors
-            return;
+            console.error("Error checking visit:", err.message);
+            return res.status(500).json({ error: "Internal Server Error" });
         }
-        res.json({ message: 'Visit logged', id: this.lastID });
+
+        if (row) {
+            // Already visited today, strictly distinct counting
+            return res.json({ message: 'Visit already recorded for today', id: row.id });
+        }
+
+        // unique visit -> insert
+        const sql = 'INSERT INTO visits (page, ip, userAgent) VALUES (?, ?, ?)';
+        db.run(sql, [page, ip, userAgent], function (err) {
+            if (err) {
+                console.error("Error logging visit:", err.message);
+                res.status(500).json({ error: "Internal Server Error" });
+                return;
+            }
+            res.json({ message: 'Unique visit logged', id: this.lastID });
+        });
     });
 });
 
@@ -133,21 +148,17 @@ app.get('/api/messages', authenticateToken, (req, res) => {
 // Admin Login
 app.post('/api/login', (req, res) => {
     const { username, password } = req.body;
-    console.log(`[LOGIN ATTEMPT] Username: ${username}, Password provided: ${password}`); // DEBUG
 
     const sql = 'SELECT * FROM users WHERE username = ?';
     db.get(sql, [username], (err, row) => {
         if (err) {
-            console.error("[LOGIN ERROR] DB Error:", err);
+            console.error("DB Error:", err);
             res.status(500).json({ error: "Internal Server Error" });
             return;
         }
         if (row) {
-            console.log(`[LOGIN] User found: ${row.username}, Hash in DB: ${row.password}`); // DEBUG
-
             // Compare hashed password
             const validPassword = bcrypt.compareSync(password, row.password);
-            console.log(`[LOGIN] Password valid? ${validPassword}`); // DEBUG
 
             if (validPassword) {
                 const token = jwt.sign({ username: row.username }, JWT_SECRET, { expiresIn: '1h' });
@@ -156,28 +167,8 @@ app.post('/api/login', (req, res) => {
                 res.status(401).json({ error: 'Invalid credentials' });
             }
         } else {
-            console.log(`[LOGIN] User NOT found: ${username}`); // DEBUG
             res.status(401).json({ error: 'Invalid credentials' });
         }
-    });
-});
-
-// DEBUG: Force Password Reset (Temporary)
-const path = require('path');
-
-// Helper to confirm database fix
-app.get('/api/fix-db', (req, res) => {
-    // ... (existing code for fix-db) ...
-    const hashedPassword = bcrypt.hashSync("admin123", 10);
-    const sql = "UPDATE users SET password = ? WHERE username = 'mohdabuhammad'";
-    // Also try to insert if not exists
-    const insertSQL = "INSERT OR IGNORE INTO users (id, username, password) VALUES (1, 'mohdabuhammad', ?)";
-    db.run(insertSQL, [hashedPassword], function (err) {
-        if (err) return res.status(500).json({ step: 'insert', error: err.message });
-        db.run(sql, [hashedPassword], function (err) {
-            if (err) return res.status(500).json({ step: 'update', error: err.message });
-            res.json({ success: true, message: "Database fixed! Password reset to 'admin123'. Changes: " + this.changes });
-        });
     });
 });
 
