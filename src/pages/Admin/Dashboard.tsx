@@ -3,6 +3,8 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 import { Users, MessageSquare, Clock, LogOut } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
+import config from '../../config';
+
 interface DashboardStats {
     totalVisits: number;
     todayVisits: number;
@@ -31,7 +33,7 @@ const Dashboard: React.FC = () => {
     const fetchStats = async () => {
         try {
             const token = localStorage.getItem('token');
-            const res = await fetch('http://localhost:3001/api/stats', {
+            const res = await fetch(`${config.API_URL}/stats`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             if (res.status === 401 || res.status === 403) {
@@ -48,7 +50,7 @@ const Dashboard: React.FC = () => {
     const fetchMessages = async () => {
         try {
             const token = localStorage.getItem('token');
-            const res = await fetch('http://localhost:3001/api/messages', {
+            const res = await fetch(`${config.API_URL}/messages`, {
                 headers: { 'Authorization': `Bearer ${token}` }
             });
             if (res.status === 401 || res.status === 403) {

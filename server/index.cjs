@@ -15,7 +15,7 @@ const JWT_SECRET = 'your-secret-key-change-in-production'; // In prod, use ENV v
 // Security Middleware
 app.use(helmet());
 app.use(cors({
-    origin: 'http://localhost:5173', // Restrict to frontend origin
+    origin: ['http://localhost:5173', 'https://www.msforsolutions.com', 'http://www.msforsolutions.com'], // Allow frontend origins
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));

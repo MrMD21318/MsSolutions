@@ -10,6 +10,8 @@ import Contact from './Contact';
 import Counter from '../components/common/Counter';
 import Scene3D from '../components/3d/Scene3D';
 
+import config from '../config';
+
 const Home: React.FC = () => {
     const { t, i18n } = useTranslation();
     const isRTL = i18n.language === 'ar';
@@ -25,7 +27,7 @@ const Home: React.FC = () => {
 
     useEffect(() => {
         // Log visit
-        fetch('http://localhost:3001/api/visits', {
+        fetch(`${config.API_URL}/visits`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ page: 'Home' })

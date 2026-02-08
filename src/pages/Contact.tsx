@@ -3,6 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Mail, Send, MessageCircle } from 'lucide-react';
 
+import config from '../config';
+
 const Contact: React.FC = () => {
     const { t } = useTranslation();
 
@@ -22,7 +24,7 @@ const Contact: React.FC = () => {
         }
 
         try {
-            const res = await fetch('http://localhost:3001/api/contact', {
+            const res = await fetch(`${config.API_URL}/contact`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
