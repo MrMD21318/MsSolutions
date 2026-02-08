@@ -12,6 +12,11 @@ const app = express();
 const PORT = 3001;
 const JWT_SECRET = 'your-secret-key-change-in-production'; // In prod, use ENV var
 
+// Health Check
+app.get('/api/health', (req, res) => {
+    res.json({ status: 'ok', timestamp: new Date().toISOString() });
+});
+
 // Security Middleware
 app.use(helmet());
 app.use(cors({
