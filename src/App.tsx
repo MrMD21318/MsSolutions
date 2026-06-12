@@ -66,6 +66,14 @@ const ScrollToTop = () => {
   return null;
 };
 
+// CV static page redirect component
+const CVRedirect = () => {
+  useEffect(() => {
+    window.location.href = '/cv/index.html';
+  }, []);
+  return null;
+};
+
 function App() {
   const [isLoading, setIsLoading] = useState(() => {
     return !sessionStorage.getItem('hasLoaded');
@@ -91,6 +99,9 @@ function App() {
           <Route path="/" element={<Layout><Home /></Layout>} />
           <Route path="/privacy" element={<Layout><Privacy /></Layout>} />
           <Route path="/terms" element={<Layout><Terms /></Layout>} />
+
+          {/* CV Redirect */}
+          <Route path="/cv" element={<CVRedirect />} />
 
           {/* --- Nested Demo Routes --- */}
 

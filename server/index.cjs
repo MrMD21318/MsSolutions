@@ -176,6 +176,11 @@ app.post('/api/login', (req, res) => {
 // Serve Frontend Static Files
 app.use(express.static(path.join(__dirname, '../dist')));
 
+// Serve CV directly at /cv
+app.get('/cv', (req, res) => {
+    res.sendFile(path.join(__dirname, '../dist/cv/index.html'));
+});
+
 // Handle React Routing, return all requests to React app
 app.get(/.*/, (req, res) => {
     res.sendFile(path.join(__dirname, '../dist/index.html'));

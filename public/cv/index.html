@@ -1,0 +1,2093 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohammad Abuhammad | IT Operations Specialist & Automation Engineer</title>
+    <meta name="description" content="Professional CV and Portfolio of Mohammad Abuhammad, IT Operations, Network, and Security Engineer with expertise in automation, endpoint security, and systems administration.">
+    <!-- Google Fonts: Inter & JetBrains Mono for Terminal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tailwind Custom Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#030712', // slate-950
+                            card: '#0f172a', // slate-900
+                            border: '#1e293b', // slate-800
+                            cyan: '#06b6d4', // cyan-500
+                            teal: '#14b8a6', // teal-500
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030712;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #06b6d4;
+        }
+        
+        /* Glassmorphism Styles */
+        .glass-card {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .glass-nav {
+            background: rgba(3, 7, 18, 0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        /* Gyping effect caret */
+        .cursor-blink::after {
+            content: '|';
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            from, to { color: transparent }
+            50% { color: #06b6d4 }
+        }
+
+        /* Scroll Animation Transitions */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Glow effects */
+        .glow-hover:hover {
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.15);
+            border-color: rgba(6, 182, 212, 0.3);
+        }
+        
+        /* Pulse Animation */
+        @keyframes pulse-ring {
+            0% { transform: scale(0.65); opacity: 1; }
+            100% { transform: scale(2.2); opacity: 0; }
+        }
+        .pulse-ring::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 100%;
+            height: 100%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            background-color: #22c55e;
+            animation: pulse-ring 2s cubic-bezier(0.215, 0.610, 0.355, 1) infinite;
+        }
+
+        /* Active Timeline Line Drawing */
+        .timeline-line {
+            background: linear-gradient(to bottom, #1e293b, #06b6d4, #14b8a6, #1e293b);
+            background-size: 100% 200%;
+            background-position: 0% 0%;
+            transition: background-position 0.2s ease;
+        }
+
+        /* Hide Default Focus Outline except for Keyboard Users */
+        *:focus-visible {
+            outline: 2px solid #06b6d4;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-slate-200 font-sans selection:bg-brand-cyan/30 selection:text-white overflow-x-hidden">
+
+    <!-- POWERSHELL PRELOADER ANIMATION -->
+    <div id="preloader" class="fixed inset-0 bg-slate-950 z-[9999] flex items-center justify-center font-mono p-4 transition-all duration-700 ease-out select-none">
+        <div class="w-full max-w-2xl bg-black border border-slate-800 rounded-lg overflow-hidden shadow-2xl flex flex-col h-[420px] sm:h-[480px]">
+            <!-- Console Window Header -->
+            <div class="bg-slate-900 px-4 py-2.5 flex items-center justify-between border-b border-slate-800">
+                <div class="flex items-center space-x-1.5">
+                    <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
+                    <span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
+                    <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+                </div>
+                <div class="text-[10px] sm:text-xs text-slate-400">Windows PowerShell - abuhammad-ops-init.ps1</div>
+                <div></div>
+            </div>
+            <!-- Console Window Body -->
+            <div id="preloader-console" class="flex-1 p-4 overflow-y-auto text-left text-xs sm:text-sm leading-relaxed space-y-2 text-cyan-400 selection:bg-cyan-500/20">
+                <!-- Lines will be dynamically generated here -->
+            </div>
+        </div>
+    </div>
+
+    <div id="portfolio-view" class="transition-all duration-1000 opacity-0 scale-95">
+        <!-- FLOATING STICKY HEADER -->
+        <header class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300" id="main-header">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#hero" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-brand-cyan to-brand-teal flex items-center justify-center font-bold text-white shadow-lg shadow-brand-cyan/20 group-hover:scale-105 transition-transform duration-300">
+                    MA
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-white font-bold leading-none tracking-wide text-sm sm:text-base">M. ABUHAMMAD</span>
+                    <span class="text-brand-cyan font-mono text-[10px] sm:text-xs mt-0.5 tracking-widest uppercase">IT Operations Specialist</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-1">
+                <a href="#about" class="px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/40 transition-all duration-200">Summary</a>
+                <a href="#skills" class="px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/40 transition-all duration-200">Skills</a>
+                <a href="#experience" class="px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/40 transition-all duration-200">Experience</a>
+                <a href="#projects" class="px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/40 transition-all duration-200">Projects</a>
+                <a href="#certifications" class="px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/40 transition-all duration-200">Certificates</a>
+                <a href="#contact" class="ml-4 px-5 py-2.5 rounded-lg text-sm font-semibold bg-gradient-to-r from-brand-cyan to-brand-teal text-white hover:opacity-90 transition-all duration-200 shadow-md shadow-brand-cyan/15 hover:shadow-brand-cyan/25">Get In Touch</a>
+            </nav>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800/60 focus:outline-none transition-colors" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars-staggered text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-brand-dark/95 border-b border-brand-border px-6 py-6 space-y-3 flex flex-col shadow-2xl backdrop-blur-lg transition-all duration-300 ease-in-out">
+            <a href="#about" class="mobile-nav-link block px-4 py-3 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800/50">Summary</a>
+            <a href="#skills" class="mobile-nav-link block px-4 py-3 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800/50">Skills</a>
+            <a href="#experience" class="mobile-nav-link block px-4 py-3 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800/50">Experience</a>
+            <a href="#projects" class="mobile-nav-link block px-4 py-3 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800/50">Projects</a>
+            <a href="#certifications" class="mobile-nav-link block px-4 py-3 rounded-lg text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800/50">Certificates</a>
+            <div class="h-px bg-slate-800/55 my-2"></div>
+            <a href="#contact" class="mobile-nav-link block text-center px-4 py-3 rounded-lg text-base font-bold bg-gradient-to-r from-brand-cyan to-brand-teal text-white hover:opacity-90">Get In Touch</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION WITH CANVAS BACKGROUND -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center pt-28 pb-16 overflow-hidden">
+        <!-- Interactive Node Canvas Background -->
+        <canvas id="network-canvas" class="absolute top-0 left-0 w-full h-full pointer-events-none z-0 opacity-40"></canvas>
+        
+        <!-- Subtle Glow Orbs -->
+        <div class="absolute top-1/4 left-1/4 w-80 h-80 rounded-full bg-brand-cyan/10 blur-[100px] pointer-events-none z-0"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-brand-teal/10 blur-[120px] pointer-events-none z-0"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Hero Left: Title & Actions -->
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <!-- Pulse Live Status -->
+                <div class="inline-flex items-center space-x-2.5 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs sm:text-sm font-semibold tracking-wide shadow-sm shadow-emerald-500/5">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                    </span>
+                    <span>Available for opportunities</span>
+                </div>
+
+                <div class="space-y-3">
+                    <p class="text-brand-cyan font-mono tracking-widest text-xs sm:text-sm uppercase font-bold">Hello World, my name is</p>
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-tight select-none">
+                        MOHAMMAD <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan to-brand-teal">ABUHAMMAD</span>
+                    </h1>
+                    <!-- Dynamic Typing Container -->
+                    <h2 class="text-base sm:text-lg md:text-xl font-mono text-slate-400 font-semibold h-8 mt-1.5 flex items-center justify-center lg:justify-start">
+                        <span id="typed-text" class="text-slate-300"></span><span class="cursor-blink font-bold text-brand-cyan"></span>
+                    </h2>
+                </div>
+
+                <p class="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
+                    Enterprise IT Operations, Automation, Network & Security Specialist. Automating systems administration with Advanced PowerShell scripting, cloud configuration, and endpoint security controls across large-scale corporate networks.
+                </p>
+
+                <!-- Location Pin -->
+                <div class="flex items-center justify-center lg:justify-start space-x-2 text-slate-400 text-xs sm:text-sm font-mono">
+                    <i class="fa-solid fa-location-dot text-brand-cyan"></i>
+                    <span>Amman, Jordan</span>
+                </div>
+
+                <!-- Call to Actions -->
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-3">
+                    <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-xl font-bold bg-gradient-to-r from-brand-cyan to-brand-teal text-white text-center hover:opacity-95 hover:scale-[1.02] shadow-lg shadow-brand-cyan/25 active:scale-95 transition-all duration-200">
+                        Get In Touch
+                    </a>
+                    <button onclick="downloadCV()" class="w-full sm:w-auto px-8 py-4 rounded-xl font-bold border border-slate-700 bg-slate-900/60 hover:bg-slate-800 hover:border-slate-600 text-slate-300 hover:text-white text-center hover:scale-[1.02] active:scale-95 transition-all duration-200 flex items-center justify-center space-x-2">
+                        <i class="fa-solid fa-download"></i>
+                        <span>Download CV</span>
+                    </button>
+                </div>
+
+                <!-- Social/Contact Links quick access -->
+                <div class="flex items-center justify-center lg:justify-start gap-4 pt-4 text-slate-400 text-lg sm:text-xl">
+                    <a href="mailto:mohdabuhammad1@gmail.com" class="hover:text-brand-cyan transition-colors" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="tel:+962796364398" class="hover:text-brand-cyan transition-colors" title="Phone"><i class="fa-solid fa-phone"></i></a>
+                    <a href="https://www.linkedin.com/in/mohd-abuhammad/" target="_blank" class="hover:text-brand-cyan transition-colors" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    <span class="w-8 h-px bg-slate-800"></span>
+                    <span class="text-xs font-mono text-slate-500 uppercase tracking-widest">Connect with me</span>
+                </div>
+            </div>
+
+            <!-- Hero Right: Interactive Visual / Quick Stats Card -->
+            <div class="lg:col-span-5 flex justify-center lg:justify-end">
+                <div class="glass-card rounded-3xl p-6 sm:p-8 w-full max-w-[420px] shadow-2xl relative border-brand-border/40 overflow-hidden group">
+                    <div class="absolute -top-10 -right-10 w-28 h-28 bg-brand-cyan/10 rounded-full blur-2xl group-hover:bg-brand-cyan/20 transition-all duration-300"></div>
+                    
+                    <div class="flex items-center space-x-4 mb-6">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-brand-cyan to-brand-teal flex items-center justify-center text-white text-xl font-bold shadow-md shadow-brand-cyan/25">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs font-mono text-brand-cyan uppercase tracking-wider">Metrics Snapshot</div>
+                            <div class="text-white font-bold text-lg">System Integrity Hub</div>
+                        </div>
+                    </div>
+
+                    <!-- Stats Lists -->
+                    <div class="space-y-6">
+                        <!-- Stat 1 -->
+                        <div class="flex items-center justify-between p-3.5 rounded-xl bg-slate-900/55 border border-brand-border/30">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-brand-cyan"><i class="fa-solid fa-briefcase"></i></div>
+                                <span class="text-slate-300 font-medium text-sm">Experience</span>
+                            </div>
+                            <span class="text-white font-extrabold text-lg sm:text-xl font-mono" id="stat-experience">0</span>
+                        </div>
+                        <!-- Stat 2 -->
+                        <div class="flex items-center justify-between p-3.5 rounded-xl bg-slate-900/55 border border-brand-border/30">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-brand-cyan"><i class="fa-solid fa-laptop-code"></i></div>
+                                <span class="text-slate-300 font-medium text-sm">Managed Endpoints</span>
+                            </div>
+                            <span class="text-white font-extrabold text-lg sm:text-xl font-mono" id="stat-endpoints">0</span>
+                        </div>
+                        <!-- Stat 3 -->
+                        <div class="flex items-center justify-between p-3.5 rounded-xl bg-slate-900/55 border border-brand-border/30">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-brand-cyan"><i class="fa-solid fa-ticket"></i></div>
+                                <span class="text-slate-300 font-medium text-sm">SLA Ticket Reduc.</span>
+                            </div>
+                            <span class="text-white font-extrabold text-lg sm:text-xl font-mono" id="stat-tickets">0</span>
+                        </div>
+                    </div>
+
+                    <!-- Tech Badge Pills in Card -->
+                    <div class="mt-6 pt-5 border-t border-slate-800/80 flex flex-wrap gap-2">
+                        <span class="text-[10px] sm:text-xs font-mono px-2 py-1 rounded bg-brand-cyan/10 border border-brand-cyan/20 text-brand-cyan">PowerShell</span>
+                        <span class="text-[10px] sm:text-xs font-mono px-2 py-1 rounded bg-brand-teal/10 border border-brand-teal/20 text-brand-teal">CrowdStrike</span>
+                        <span class="text-[10px] sm:text-xs font-mono px-2 py-1 rounded bg-slate-800/80 text-slate-300">Azure AD</span>
+                        <span class="text-[10px] sm:text-xs font-mono px-2 py-1 rounded bg-slate-800/80 text-slate-300">BigFix</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll down indicator -->
+        <a href="#about" class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center space-y-2 text-slate-500 hover:text-white transition-colors duration-200 focus:outline-none z-10" aria-label="Scroll to Summary">
+            <span class="text-[10px] sm:text-xs font-mono tracking-widest uppercase">Explore Profile</span>
+            <div class="w-6 h-10 rounded-full border border-slate-700 p-1 flex justify-center">
+                <div class="w-1.5 h-3 rounded-full bg-brand-cyan animate-bounce mt-1"></div>
+            </div>
+        </a>
+    </section>
+
+    <!-- SECTION: PROFESSIONAL SUMMARY -->
+    <section id="about" class="py-24 max-w-7xl mx-auto px-6 relative z-10">
+        <div class="reveal">
+            <div class="flex items-center space-x-3 mb-4">
+                <span class="h-px w-8 bg-brand-cyan"></span>
+                <span class="text-brand-cyan font-mono text-sm uppercase tracking-widest font-bold">Introduction</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-8">Professional Summary</h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start reveal">
+            <!-- Summary Glass Card -->
+            <div class="lg:col-span-8 glass-card rounded-2xl p-6 sm:p-8 border-brand-border/40 shadow-xl space-y-6 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-brand-cyan to-brand-teal"></div>
+                <p class="text-slate-300 text-base sm:text-lg leading-relaxed font-light">
+                    Results-driven IT Operations, Network, and Security Engineer with 3+ years of experience in enterprise IT infrastructure, endpoint management, and security operations. Fully grounded in <strong class="text-white font-semibold">ITIL & ITSM Foundations</strong>, with a proven track record of maintaining strict ticket <strong class="text-white font-semibold">SLA compliance</strong> and optimizing incident/request management lifecycles.
+                </p>
+                <p class="text-slate-300 text-base sm:text-lg leading-relaxed font-light">
+                    Specialized in <strong class="text-brand-cyan font-medium">automated IT operations and daily tasks</strong>, leveraging PowerShell scripting, BigFix, and Endpoint Central to automate patching, asset inventory, compliance audits, and security agent configurations. Skilled in deploying and remediating endpoint security solutions including CrowdStrike Falcon and Cortex XDR across 2500+ systems.
+                </p>
+                <p class="text-slate-300 text-base sm:text-lg leading-relaxed font-light">
+                    Expert at identifying and solving complex system issues from the root using advanced automation, logging diagnostics, and proactive scripting—shifting operations from reactive troubleshooting to high-integrity proactive remediation.
+                </p>
+            </div>
+
+            <!-- Quick Highlight Cards -->
+            <div class="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6 w-full">
+                <!-- Highlight 1 -->
+                <div class="glass-card rounded-2xl p-6 border-brand-border/30 hover:border-brand-cyan/25 transition-all duration-300 group">
+                    <div class="w-10 h-10 rounded-xl bg-slate-800/80 flex items-center justify-center text-brand-cyan mb-4 group-hover:scale-105 transition-transform duration-200">
+                        <i class="fa-solid fa-earth-europe"></i>
+                    </div>
+                    <h3 class="text-white font-bold text-base mb-1">EMEA Operations</h3>
+                    <p class="text-slate-400 text-sm font-light">Managing distributed endpoint environments across EMEA sites.</p>
+                </div>
+                <!-- Highlight 2 -->
+                <div class="glass-card rounded-2xl p-6 border-brand-border/30 hover:border-brand-teal/25 transition-all duration-300 group">
+                    <div class="w-10 h-10 rounded-xl bg-slate-800/80 flex items-center justify-center text-brand-teal mb-4 group-hover:scale-105 transition-transform duration-200">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <h3 class="text-white font-bold text-base mb-1">AI & PowerShell Automation</h3>
+                    <p class="text-slate-400 text-sm font-light">Optimizing legacy support processes using n8n and scripting.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- OS Console Simulator Widget -->
+        <div class="mt-12 reveal glass-card rounded-2xl border-brand-border/40 overflow-hidden shadow-2xl">
+            <!-- Header bar with tabs -->
+            <div class="bg-slate-950 px-6 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-brand-border/50 gap-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 rounded-lg bg-slate-900 border border-brand-border/80 flex items-center justify-center text-brand-cyan text-sm">
+                        <i class="fa-solid fa-terminal"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-bold text-sm">OS Diagnostics Simulator</h3>
+                        <p class="text-[10px] text-slate-500 font-mono">Select active operating system environment console</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-2 bg-slate-900/60 p-1 rounded-lg border border-brand-border/45">
+                    <button onclick="switchOSTab('windows')" id="os-btn-windows" class="px-4 py-2 rounded-md text-xs font-mono font-semibold transition-all focus:outline-none bg-brand-cyan/15 text-brand-cyan">
+                        <i class="fa-brands fa-windows mr-1"></i> Windows (PowerShell)
+                    </button>
+                    <button onclick="switchOSTab('linux')" id="os-btn-linux" class="px-4 py-2 rounded-md text-xs font-mono font-semibold transition-all focus:outline-none text-slate-400 hover:text-white">
+                        <i class="fa-brands fa-linux mr-1"></i> Linux (Bash)
+                    </button>
+                </div>
+            </div>
+            <!-- Console Content Screen -->
+            <div class="p-6 bg-black font-mono text-xs sm:text-sm h-[320px] overflow-y-auto leading-relaxed select-text" id="os-console-screen">
+                <!-- Windows Content -->
+                <div id="os-log-windows" class="space-y-2 text-cyan-400">
+                    <div>Windows PowerShell</div>
+                    <div class="text-slate-400">Copyright (C) Microsoft Corporation. All rights reserved.</div>
+                    <div>&nbsp;</div>
+                    <div><span class="text-slate-100 font-bold">PS C:\Users\mohammad></span> <span class="text-slate-300">Get-ADUser -Filter {Enabled -eq $true} -SearchBase "OU=EMEA,DC=corporate,DC=local" | Select-Object SamAccountName, UserPrincipalName -First 3</span></div>
+                    <div class="text-slate-400">>> Executing Active Directory LDAP Query...</div>
+                    <div class="grid grid-cols-2 max-w-md text-slate-300 border-b border-slate-800 pb-1 mt-1">
+                        <span class="font-bold">SamAccountName</span><span class="font-bold">UserPrincipalName</span>
+                    </div>
+                    <div class="grid grid-cols-2 max-w-md text-emerald-400">
+                        <span>m.abuhammad</span><span>m.abuhammad@corporate.local</span>
+                        <span>j.smith</span><span>j.smith@corporate.local</span>
+                        <span>a.elamin</span><span>a.elamin@corporate.local</span>
+                    </div>
+                    <div>&nbsp;</div>
+                    <div><span class="text-slate-100 font-bold">PS C:\Users\mohammad></span> <span class="text-slate-300">& .\Invoke-VulnerabilityRemediation.ps1 -Policy "CIS-Level-1" -Verbose</span></div>
+                    <div class="text-slate-400">VERBOSE: Initializing Local Security Policy Remediation Script...</div>
+                    <div class="text-slate-400">VERBOSE: Auditing registry paths for vulnerable configurations...</div>
+                    <div class="text-slate-400">VERBOSE: Disabling TLS 1.0, TLS 1.1, and legacy cipher suites...</div>
+                    <div class="text-yellow-400">VERBOSE: Enforcing LSA RunAsPPL protection keys (HKLM:\SYSTEM\CurrentControlSet\Control\Lsa)...</div>
+                    <div class="text-emerald-400">[SUCCESS] Vulnerability remediation rules successfully enforced! Registry hardened.</div>
+                </div>
+                <!-- Linux Content -->
+                <div id="os-log-linux" class="hidden space-y-2 text-emerald-400">
+                    <div>mohammad@abuhammad-ops-srv:~$ ./deploy-vps-stack.sh --env production --port 8080 --ssl</div>
+                    <div class="text-slate-300">[INFO] Bootstrapping Dockerized VPS Environment...</div>
+                    <div class="text-slate-300">[INFO] Pulling latest production deployment build artifacts from Git CI/CD Registry...</div>
+                    <div class="text-slate-300">[INFO] Provisioning Nginx Reverse Proxy with Let's Encrypt SSL certifications...</div>
+                    <div class="text-slate-400">[DOCKER] Container stack 'ops-backend-v2' initialized on port 8080.</div>
+                    <div class="text-cyan-400">[SUCCESS] VPS stack deployment completed. Health check status: 200 OK</div>
+                    <div>&nbsp;</div>
+                    <div>mohammad@abuhammad-ops-srv:~$ sudo /opt/scripts/remediate-cve.sh --cve CVE-2024-3094 --check-only</div>
+                    <div class="text-slate-300">[AUDIT] Checking package version updates and liblzma dependencies...</div>
+                    <div class="text-slate-400">[AUDIT] Version check: system clean. CVE-2024-3094 vulnerability not detected.</div>
+                    <div class="text-cyan-400">[STATUS] All local core repositories verified against active security advisories.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: TECHNICAL SKILLS -->
+    <section id="skills" class="py-24 bg-slate-950/40 border-y border-slate-900/60 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="reveal">
+                <div class="flex items-center space-x-3 mb-4">
+                    <span class="h-px w-8 bg-brand-teal"></span>
+                    <span class="text-brand-teal font-mono text-sm uppercase tracking-widest font-bold">Skills Matrix</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">Technical Expertise</h2>
+                <p class="text-slate-400 max-w-xl text-base font-light mb-12">Categorized overview of tools, systems, and languages I leverage to design secure, highly automated enterprise infrastructures.</p>
+            </div>
+
+            <!-- Skills Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal">
+                
+                <!-- Category 1: Endpoint Management -->
+                <div class="glass-card rounded-2xl p-6 border-brand-border/30 glow-hover transition-all duration-300 relative group">
+                    <div class="flex items-center space-x-3.5 mb-6">
+                        <div class="w-10 h-10 rounded-lg bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center text-brand-cyan">
+                            <i class="fa-solid fa-laptop-medical"></i>
+                        </div>
+                        <h3 class="text-white font-bold text-lg">Endpoint Management</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="skill-item" data-level="Advanced">
+                            <div class="flex justify-between text-xs sm:text-sm mb-1.5">
+                                <span class="text-slate-300">BigFix & Endpoint Central</span>
+                                <span class="text-brand-cyan font-mono text-xs font-medium">90%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-brand-cyan rounded-full w-[90%]"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-level="Proficient">
+                            <div class="flex justify-between text-xs sm:text-sm mb-1.5">
+                                <span class="text-slate-300">Microsoft SCCM & Intune (MDM)</span>
+                                <span class="text-brand-cyan font-mono text-xs font-medium">85%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-brand-cyan rounded-full w-[85%]"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-level="Advanced">
+                            <div class="flex justify-between text-xs sm:text-sm mb-1.5">
+                                <span class="text-slate-300">Software Deployment & Patching</span>
+                                <span class="text-brand-cyan font-mono text-xs font-medium">92%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-brand-cyan rounded-full w-[92%]"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 2: Endpoint Security -->
+                <div class="glass-card rounded-2xl p-6 border-brand-border/30 glow-hover transition-all duration-300 relative group">
+                    <div class="flex items-center space-x-3.5 mb-6">
+                        <div class="w-10 h-10 rounded-lg bg-brand-teal/10 border border-brand-teal/20 flex items-center justify-center text-brand-teal">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3 class="text-white font-bold text-lg">Endpoint Security</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="skill-item" data-level="Advanced">
+                            <div class="flex justify-between text-xs sm:text-sm mb-1.5">
+                                <span class="text-slate-300">CrowdStrike Falcon (EDR)</span>
+                                <span class="text-brand-teal font-mono text-xs font-medium">92%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-brand-teal rounded-full w-[92%]"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-level="Advanced">
+                            <div class="flex justify-between text-xs sm:text-sm mb-1.5">
+                                <span class="text-slate-300">Cortex XDR & Agent Cleanup</span>
+                                <span class="text-brand-teal font-mono text-xs font-medium">88%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-brand-teal rounded-full w-[88%]"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-level="Proficient">
+                            <div class="flex justify-between text-xs sm:text-sm mb-1.5">
+                                <span class="text-slate-300">Vulnerability Remediation / BitLocker</span>
+                                <span class="text-brand-teal font-mono text-xs font-medium">85%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-brand-teal rounded-full w-[85%]"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 3: Systems Administration -->
+                <div class="glass-card rounded-2xl p-6 border-brand-border/30 glow-hover transition-all duration-300 relative group">
+                    <div class="flex items-center space-x-3.5 mb-6">
+                        <div class="w-10 h-10 rounded-lg bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center text-brand-cyan">
+                            <i class="fa-solid fa-server"></i>
+                        </div>
+                        <h3 class="text-white font-bold text-lg">Systems Administration</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="skill-item" data-level="Advanced">
+                            <div class="flex justify-between text-xs sm:text-sm mb-1.5">
+                                <span class="text-slate-300">Active Directory & GPOs</span>
+                                <span class="text-brand-cyan font-mono text-xs font-medium">95%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-brand-cyan rounded-full w-[95%]"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-level="Proficient">
+                            <div class="flex justify-between text-xs sm:text-sm mb-1.5">
+                                <span class="text-slate-300">Microsoft 365 & Exchange</span>
+                                <span class="text-brand-cyan font-mono text-xs font-medium">85%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-brand-cyan rounded-full w-[85%]"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-level="Proficient">
+                            <div class="flex justify-between text-xs sm:text-sm mb-1.5">
+                                <span class="text-slate-300">Windows Server Roles & DNS/DHCP</span>
+                                <span class="text-brand-cyan font-mono text-xs font-medium">85%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-brand-cyan rounded-full w-[85%]"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 4: Cloud & Identity -->
+                <div class="glass-card rounded-2xl p-6 border-brand-border/30 glow-hover transition-all duration-300 relative group">
+                    <div class="flex items-center space-x-3.5 mb-6">
+                        <div class="w-10 h-10 rounded-lg bg-brand-teal/10 border border-brand-teal/20 flex items-center justify-center text-brand-teal">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                        </div>
+                        <h3 class="text-white font-bold text-lg">Cloud & Identity</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="skill-item" data-level="Proficient">
+                            <div class="flex justify-between text-xs sm:text-sm mb-1.5">
+                                <span class="text-slate-300">Microsoft Azure & M365 Admin</span>
+                                <span class="text-brand-teal font-mono text-xs font-medium">85%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-brand-teal rounded-full w-[85%]"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-level="Proficient">
+                            <div class="flex justify-between text-xs sm:text-sm mb-1.5">
+                                <span class="text-slate-300">Azure AD / Entra ID</span>
+                                <span class="text-brand-teal font-mono text-xs font-medium">88%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-brand-teal rounded-full w-[88%]"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-level="Proficient">
+                            <div class="flex justify-between text-xs sm:text-sm mb-1.5">
+                                <span class="text-slate-300">SSO, MFA, Conditional Access</span>
+                                <span class="text-brand-teal font-mono text-xs font-medium">80%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-brand-teal rounded-full w-[80%]"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 5: Automation & DevOps -->
+                <div class="glass-card rounded-2xl p-6 border-brand-border/30 glow-hover transition-all duration-300 relative group">
+                    <div class="flex items-center space-x-3.5 mb-6">
+                        <div class="w-10 h-10 rounded-lg bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center text-brand-cyan">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <h3 class="text-white font-bold text-lg">Automation & DevOps</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="skill-item" data-level="Advanced">
+                            <div class="flex justify-between text-xs sm:text-sm mb-1.5">
+                                <span class="text-slate-300">PowerShell & Shell Scripting</span>
+                                <span class="text-brand-cyan font-mono text-xs font-medium">95%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-brand-cyan rounded-full w-[95%]"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-level="Proficient">
+                            <div class="flex justify-between text-xs sm:text-sm mb-1.5">
+                                <span class="text-slate-300">DevOps, CI/CD & VPS Creation</span>
+                                <span class="text-brand-cyan font-mono text-xs font-medium">85%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-brand-cyan rounded-full w-[85%]"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-level="Proficient">
+                            <div class="flex justify-between text-xs sm:text-sm mb-1.5">
+                                <span class="text-slate-300">Software Dev, n8n & APIs</span>
+                                <span class="text-brand-cyan font-mono text-xs font-medium">80%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-brand-cyan rounded-full w-[80%]"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 6: Networking & Dev -->
+                <div class="glass-card rounded-2xl p-6 border-brand-border/30 glow-hover transition-all duration-300 relative group">
+                    <div class="flex items-center space-x-3.5 mb-6">
+                        <div class="w-10 h-10 rounded-lg bg-brand-teal/10 border border-brand-teal/20 flex items-center justify-center text-brand-teal">
+                            <i class="fa-solid fa-network-wired"></i>
+                        </div>
+                        <h3 class="text-white font-bold text-lg">Network & Infrastructure</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="skill-item" data-level="Advanced">
+                            <div class="flex justify-between text-xs sm:text-sm mb-1.5">
+                                <span class="text-slate-300">TCP/IP, VLANs, Routing</span>
+                                <span class="text-brand-teal font-mono text-xs font-medium">85%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-brand-teal rounded-full w-[85%]"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-level="Proficient">
+                            <div class="flex justify-between text-xs sm:text-sm mb-1.5">
+                                <span class="text-slate-300">VPNs, Firewalls & Monitoring</span>
+                                <span class="text-brand-teal font-mono text-xs font-medium">80%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-brand-teal rounded-full w-[80%]"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-level="Proficient">
+                            <div class="flex justify-between text-xs sm:text-sm mb-1.5">
+                                <span class="text-slate-300">Databases & Docker Containers</span>
+                                <span class="text-brand-teal font-mono text-xs font-medium">78%</span>
+                            </div>
+                            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                <div class="h-full bg-brand-teal rounded-full w-[78%]"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: PROFESSIONAL EXPERIENCE -->
+    <section id="experience" class="py-24 max-w-7xl mx-auto px-6 relative z-10">
+        <div class="reveal">
+            <div class="flex items-center space-x-3 mb-4">
+                <span class="h-px w-8 bg-brand-cyan"></span>
+                <span class="text-brand-cyan font-mono text-sm uppercase tracking-widest font-bold">Timeline</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">Professional Experience</h2>
+            <p class="text-slate-400 max-w-xl text-base font-light mb-16">My career trajectory and impact across enterprise environments, focusing on network management, security configuration, and infrastructure operations.</p>
+        </div>
+
+        <!-- Vertical Timeline Container -->
+        <div class="relative max-w-4xl mx-auto reveal">
+            <!-- Central Line -->
+            <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-1 md:-translate-x-1/2 timeline-line rounded-full"></div>
+
+            <!-- Role 1 -->
+            <div class="relative flex flex-col md:flex-row md:justify-between items-start md:items-center mb-12 group">
+                <!-- Marker Dot -->
+                <div class="absolute left-4 md:left-1/2 w-6 h-6 rounded-full bg-brand-dark border-4 border-brand-cyan -translate-x-[10px] md:-translate-x-3 flex items-center justify-center z-10 transition-transform duration-300 group-hover:scale-125">
+                    <div class="w-1.5 h-1.5 rounded-full bg-brand-cyan"></div>
+                </div>
+
+                <!-- Left Content Card (Empty on Desktop for role 1) -->
+                <div class="hidden md:block w-[45%]"></div>
+
+                <!-- Right Content Card -->
+                <div class="w-full md:w-[45%] ml-12 md:ml-0 glass-card rounded-2xl p-6 border-brand-border/40 shadow-xl group-hover:border-brand-cyan/30 transition-all duration-300">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="px-2.5 py-1 rounded-md bg-brand-cyan/10 border border-brand-cyan/20 text-brand-cyan font-mono text-[10px] sm:text-xs font-semibold uppercase">Oct 2025 - Present</span>
+                        <span class="text-xs text-slate-400 font-mono"><i class="fa-solid fa-location-dot"></i> Amman, Jordan</span>
+                    </div>
+                    <h3 class="text-white font-extrabold text-xl">IT Operations Specialist</h3>
+                    <div class="text-brand-teal font-medium text-sm mb-4">Concentrix</div>
+
+                    <ul class="space-y-2.5 text-slate-300 text-sm font-light mb-6">
+                        <li class="flex items-start space-x-2.5">
+                            <i class="fa-solid fa-square-check text-brand-cyan mt-1 flex-shrink-0"></i>
+                            <span>Manage day-to-day EMEA-wide IT operations aligned with <strong class="text-white font-semibold">ITIL / ITSM standards</strong>, ensuring high availability and compliance across 2500+ endpoints.</span>
+                        </li>
+                        <li class="flex items-start space-x-2.5">
+                            <i class="fa-solid fa-square-check text-brand-cyan mt-1 flex-shrink-0"></i>
+                            <span>Exceed ticket <strong class="text-white font-semibold">SLA targets</strong> by automating daily IT operations tasks (patching, software baseline audits, cleanup) using BigFix and ManageEngine.</span>
+                        </li>
+                        <li class="flex items-start space-x-2.5">
+                            <i class="fa-solid fa-square-check text-brand-cyan mt-1 flex-shrink-0"></i>
+                            <span>Analyze recurring incident trends to solve complex operational issues from the root using automated PowerShell self-healing scripts.</span>
+                        </li>
+                        <li class="flex items-start space-x-2.5">
+                            <i class="fa-solid fa-square-check text-brand-cyan mt-1 flex-shrink-0"></i>
+                            <span>Remediate EDR (CrowdStrike/Cortex) sensor errors programmatically, resolving security drift and network isolation issues.</span>
+                        </li>
+                    </ul>
+
+                    <!-- Expandable subsection -->
+                    <button onclick="toggleExpand('cx-projects')" class="text-xs font-mono text-brand-cyan hover:underline flex items-center space-x-1 focus:outline-none">
+                        <span>Show Key Projects</span>
+                        <i id="cx-projects-icon" class="fa-solid fa-chevron-down text-[9px] transition-transform duration-200"></i>
+                    </button>
+                    <div id="cx-projects" class="hidden mt-4 pt-4 border-t border-slate-800/80 space-y-3">
+                        <div class="bg-slate-900/60 p-3 rounded-lg border border-slate-800/60">
+                            <div class="text-xs font-mono text-slate-400">Security agent Cleanup & Chaining</div>
+                            <p class="text-xs text-slate-300 mt-1 font-light">Developed Cortex XDR and CrowdStrike automated uninstall/reinstall routines with BitLocker control loops during Safemode execution.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Role 2 -->
+            <div class="relative flex flex-col md:flex-row md:justify-between items-start md:items-center mb-12 group">
+                <!-- Marker Dot -->
+                <div class="absolute left-4 md:left-1/2 w-6 h-6 rounded-full bg-brand-dark border-4 border-brand-teal -translate-x-[10px] md:-translate-x-3 flex items-center justify-center z-10 transition-transform duration-300 group-hover:scale-125">
+                    <div class="w-1.5 h-1.5 rounded-full bg-brand-teal"></div>
+                </div>
+
+                <!-- Left Content Card -->
+                <div class="w-full md:w-[45%] ml-12 md:ml-0 glass-card rounded-2xl p-6 border-brand-border/40 shadow-xl group-hover:border-brand-teal/30 transition-all duration-300">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="px-2.5 py-1 rounded-md bg-brand-teal/10 border border-brand-teal/20 text-brand-teal font-mono text-[10px] sm:text-xs font-semibold uppercase">Aug 2023 - Oct 2025</span>
+                        <span class="text-xs text-slate-400 font-mono"><i class="fa-solid fa-location-dot"></i> Amman, Jordan</span>
+                    </div>
+                    <h3 class="text-white font-extrabold text-xl">Corporate IT Executive</h3>
+                    <div class="text-brand-cyan font-medium text-sm mb-4">Aramex International</div>
+
+                    <ul class="space-y-2.5 text-slate-300 text-sm font-light mb-6">
+                        <li class="flex items-start space-x-2.5">
+                            <i class="fa-solid fa-square-check text-brand-teal mt-1 flex-shrink-0"></i>
+                            <span>Delivered Tier 2/3 systems support adhering to SLA policies, administering AD, GPOs, DNS/DHCP, and M365 environments.</span>
+                        </li>
+                        <li class="flex items-start space-x-2.5">
+                            <i class="fa-solid fa-square-check text-brand-teal mt-1 flex-shrink-0"></i>
+                            <span>Automated daily endpoint audits and MDM device compliance profiles using Microsoft Intune and SCCM task sequences.</span>
+                        </li>
+                        <li class="flex items-start space-x-2.5">
+                            <i class="fa-solid fa-square-check text-brand-teal mt-1 flex-shrink-0"></i>
+                            <span>Conducted root-cause analysis on complex infrastructure issues and network routing anomalies, auditing firewall/DHCP logs to prevent recurrences.</span>
+                        </li>
+                    </ul>
+
+                    <!-- Expandable subsection -->
+                    <button onclick="toggleExpand('aramex-projects')" class="text-xs font-mono text-brand-teal hover:underline flex items-center space-x-1 focus:outline-none">
+                        <span>Show Key Projects</span>
+                        <i id="aramex-projects-icon" class="fa-solid fa-chevron-down text-[9px] transition-transform duration-200"></i>
+                    </button>
+                    <div id="aramex-projects" class="hidden mt-4 pt-4 border-t border-slate-800/80 space-y-3">
+                        <div class="bg-slate-900/60 p-3 rounded-lg border border-slate-800/60">
+                            <div class="text-xs font-mono text-slate-400">M365 Transition Support</div>
+                            <p class="text-xs text-slate-300 mt-1 font-light">Assisted in bulk user mailbox security migrations and Endpoint deployment of Intune profiles to 300+ remote workers.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Content Card (Empty on Desktop for role 2) -->
+                <div class="hidden md:block w-[45%]"></div>
+            </div>
+
+            <!-- Role 3 -->
+            <div class="relative flex flex-col md:flex-row md:justify-between items-start md:items-center mb-4 group">
+                <!-- Marker Dot -->
+                <div class="absolute left-4 md:left-1/2 w-6 h-6 rounded-full bg-brand-dark border-4 border-slate-700 -translate-x-[10px] md:-translate-x-3 flex items-center justify-center z-10 transition-transform duration-300 group-hover:scale-125">
+                    <div class="w-1.5 h-1.5 rounded-full bg-slate-400"></div>
+                </div>
+
+                <!-- Left Content Card (Empty on Desktop for role 3) -->
+                <div class="hidden md:block w-[45%]"></div>
+
+                <!-- Right Content Card -->
+                <div class="w-full md:w-[45%] ml-12 md:ml-0 glass-card rounded-2xl p-6 border-brand-border/40 shadow-xl group-hover:border-slate-500/20 transition-all duration-300">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="px-2.5 py-1 rounded-md bg-slate-800 border border-slate-700 text-slate-400 font-mono text-[10px] sm:text-xs font-semibold uppercase">Apr 2022 - Aug 2023</span>
+                        <span class="text-xs text-slate-400 font-mono"><i class="fa-solid fa-location-dot"></i> Amman, Jordan</span>
+                    </div>
+                    <h3 class="text-white font-extrabold text-xl">Product Promoter</h3>
+                    <div class="text-brand-teal font-medium text-sm mb-4">Electronic Service Co. (ESCO) - Zain</div>
+
+                    <ul class="space-y-2.5 text-slate-300 text-sm font-light">
+                        <li class="flex items-start space-x-2.5">
+                            <i class="fa-solid fa-square-check text-slate-500 mt-1 flex-shrink-0"></i>
+                            <span>Achieved top seller status through customer engagement and technical product knowledge.</span>
+                        </li>
+                        <li class="flex items-start space-x-2.5">
+                            <i class="fa-solid fa-square-check text-slate-500 mt-1 flex-shrink-0"></i>
+                            <span>Provided technical explanations of fiber internet services and addressed Wi-Fi interference.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION: FEATURED PROJECTS -->
+    <section id="projects" class="py-24 bg-slate-950/40 border-y border-slate-900/60 relative z-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="reveal">
+                <div class="flex items-center space-x-3 mb-4">
+                    <span class="h-px w-8 bg-brand-cyan"></span>
+                    <span class="text-brand-cyan font-mono text-sm uppercase tracking-widest font-bold">Automation Portfolio</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">Featured Projects</h2>
+                <p class="text-slate-400 max-w-xl text-base font-light mb-12">Practical implementations of scripting, workflows, and integrations to solve core operations and security concerns.</p>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal">
+                
+                <!-- Project 1 -->
+                <div class="glass-card rounded-2xl p-6 border-brand-border/30 hover:scale-[1.01] hover:border-brand-cyan/20 duration-300 flex flex-col justify-between group cursor-pointer" onclick="openProjectModal('chatbot')">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-brand-cyan/25 to-brand-teal/5 flex items-center justify-center text-brand-cyan text-xl mb-6 group-hover:scale-110 transition-transform duration-200">
+                            <i class="fa-solid fa-comments"></i>
+                        </div>
+                        <h3 class="text-white font-extrabold text-lg mb-2">AI-Powered Social Media Chatbot</h3>
+                        <p class="text-slate-400 text-sm font-light leading-relaxed mb-4">AI automation system using custom agents for automated customer engagement across platforms, integrating LLMs and context routing.</p>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-900 border border-brand-border/40 text-slate-400">LLM APIs</span>
+                            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-900 border border-brand-border/40 text-slate-400">Agent Framework</span>
+                            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-900 border border-brand-border/40 text-slate-400">Node.js</span>
+                        </div>
+                        <span class="text-xs font-mono text-brand-cyan flex items-center space-x-1 hover:underline">
+                            <span>Read Technical breakdown</span>
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="glass-card rounded-2xl p-6 border-brand-border/30 hover:scale-[1.01] hover:border-brand-cyan/20 duration-300 flex flex-col justify-between group cursor-pointer" onclick="openProjectModal('ad-bot')">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-brand-cyan/25 to-brand-teal/5 flex items-center justify-center text-brand-cyan text-xl mb-6 group-hover:scale-110 transition-transform duration-200">
+                            <i class="fa-brands fa-telegram"></i>
+                        </div>
+                        <h3 class="text-white font-extrabold text-lg mb-2">AD Automation via Chatbots</h3>
+                        <p class="text-slate-400 text-sm font-light leading-relaxed mb-4">n8n workflows coupled with local PowerShell gateways enabling authorized Admins to process resets and locks securely from mobile chats.</p>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-900 border border-brand-border/40 text-slate-400">n8n Workflows</span>
+                            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-900 border border-brand-border/40 text-slate-400">PowerShell API</span>
+                            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-900 border border-brand-border/40 text-slate-400">Secured Gateways</span>
+                        </div>
+                        <span class="text-xs font-mono text-brand-cyan flex items-center space-x-1 hover:underline">
+                            <span>Read Technical breakdown</span>
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="glass-card rounded-2xl p-6 border-brand-border/30 hover:scale-[1.01] hover:border-brand-cyan/20 duration-300 flex flex-col justify-between group cursor-pointer" onclick="openProjectModal('automation-suite')">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-brand-cyan/25 to-brand-teal/5 flex items-center justify-center text-brand-cyan text-xl mb-6 group-hover:scale-110 transition-transform duration-200">
+                            <i class="fa-solid fa-gears"></i>
+                        </div>
+                        <h3 class="text-white font-extrabold text-lg mb-2">PowerShell Automation Suite</h3>
+                        <p class="text-slate-400 text-sm font-light leading-relaxed mb-4">Remediation scripts for CrowdStrike & Cortex EDR installation conflicts, mass domain joins via WinRM, and active directory bulk resets.</p>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-900 border border-brand-border/40 text-slate-400">PowerShell Core</span>
+                            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-900 border border-brand-border/40 text-slate-400">WMI / CIM</span>
+                            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-900 border border-brand-border/40 text-slate-400">WinRM</span>
+                        </div>
+                        <span class="text-xs font-mono text-brand-cyan flex items-center space-x-1 hover:underline">
+                            <span>Read Technical breakdown</span>
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="glass-card rounded-2xl p-6 border-brand-border/30 hover:scale-[1.01] hover:border-brand-cyan/20 duration-300 flex flex-col justify-between group cursor-pointer" onclick="openProjectModal('iot-tank')">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-brand-cyan/25 to-brand-teal/5 flex items-center justify-center text-brand-cyan text-xl mb-6 group-hover:scale-110 transition-transform duration-200">
+                            <i class="fa-solid fa-faucet-drip"></i>
+                        </div>
+                        <h3 class="text-white font-extrabold text-lg mb-2">Smart Water Tank IoT System</h3>
+                        <p class="text-slate-400 text-sm font-light leading-relaxed mb-4">Real-time water level calculation using ESP8266 modules, streaming sensor updates to Firebase with custom mobile overlay alerts.</p>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-900 border border-brand-border/40 text-slate-400">ESP8266 IoT</span>
+                            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-900 border border-brand-border/40 text-slate-400">Firebase DB</span>
+                            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-900 border border-brand-border/40 text-slate-400">Android API</span>
+                        </div>
+                        <span class="text-xs font-mono text-brand-cyan flex items-center space-x-1 hover:underline">
+                            <span>Read Technical breakdown</span>
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: CERTIFICATIONS -->
+    <section id="certifications" class="py-24 max-w-7xl mx-auto px-6 relative z-10">
+        <div class="reveal">
+            <div class="flex items-center space-x-3 mb-4">
+                <span class="h-px w-8 bg-brand-cyan"></span>
+                <span class="text-brand-cyan font-mono text-sm uppercase tracking-widest font-bold">Credentials</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">Certifications</h2>
+            <p class="text-slate-400 max-w-xl text-base font-light mb-12">Professional licenses and training records in networks, defense systems, and security essentials.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 reveal">
+            <!-- CCNA -->
+            <div class="glass-card rounded-xl p-5 border-brand-border/30 hover:border-brand-cyan/20 transition-all duration-300 text-center flex flex-col justify-between items-center group">
+                <div class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-brand-cyan mb-4 text-xl group-hover:scale-110 transition-transform duration-200">
+                    <i class="fa-solid fa-network-wired"></i>
+                </div>
+                <div>
+                    <h3 class="text-white font-bold text-sm mb-1 leading-tight">CCNA</h3>
+                    <div class="text-[11px] text-slate-400 font-mono">Cisco Systems</div>
+                </div>
+                <span class="mt-4 px-2.5 py-0.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/20 text-brand-cyan text-[10px] font-mono">Course Done</span>
+            </div>
+
+            <!-- Fortinet NSE 1 -->
+            <div class="glass-card rounded-xl p-5 border-brand-border/30 hover:border-brand-cyan/20 transition-all duration-300 text-center flex flex-col justify-between items-center group">
+                <div class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-brand-teal mb-4 text-xl group-hover:scale-110 transition-transform duration-200">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+                <div>
+                    <h3 class="text-white font-bold text-sm mb-1 leading-tight">NSE 1 Associate</h3>
+                    <div class="text-[11px] text-slate-400 font-mono">Fortinet</div>
+                </div>
+                <span class="mt-4 px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-mono">Certified</span>
+            </div>
+
+            <!-- Fortinet NSE 2 -->
+            <div class="glass-card rounded-xl p-5 border-brand-border/30 hover:border-brand-cyan/20 transition-all duration-300 text-center flex flex-col justify-between items-center group">
+                <div class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-brand-teal mb-4 text-xl group-hover:scale-110 transition-transform duration-200">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div>
+                    <h3 class="text-white font-bold text-sm mb-1 leading-tight">NSE 2 Associate</h3>
+                    <div class="text-[11px] text-slate-400 font-mono">Fortinet</div>
+                </div>
+                <span class="mt-4 px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-mono">Certified</span>
+            </div>
+
+            <!-- EC-Council NDE -->
+            <div class="glass-card rounded-xl p-5 border-brand-border/30 hover:border-brand-cyan/20 transition-all duration-300 text-center flex flex-col justify-between items-center group">
+                <div class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-brand-cyan mb-4 text-xl group-hover:scale-110 transition-transform duration-200">
+                    <i class="fa-solid fa-building-shield"></i>
+                </div>
+                <div>
+                    <h3 class="text-white font-bold text-sm mb-1 leading-tight">NDE Essentials</h3>
+                    <div class="text-[11px] text-slate-400 font-mono">EC-Council</div>
+                </div>
+                <span class="mt-4 px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-mono">Certified</span>
+            </div>
+
+            <!-- EC-Council EHE -->
+            <div class="glass-card rounded-xl p-5 border-brand-border/30 hover:border-brand-cyan/20 transition-all duration-300 text-center flex flex-col justify-between items-center group">
+                <div class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-brand-cyan mb-4 text-xl group-hover:scale-110 transition-transform duration-200">
+                    <i class="fa-solid fa-terminal"></i>
+                </div>
+                <div>
+                    <h3 class="text-white font-bold text-sm mb-1 leading-tight">Ethical Hacking</h3>
+                    <div class="text-[11px] text-slate-400 font-mono">EC-Council</div>
+                </div>
+                <span class="mt-4 px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-mono">Certified</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: EDUCATION & VOLUNTEERING -->
+    <section class="py-24 bg-slate-950/40 border-y border-slate-900/60 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12">
+            
+            <!-- Left Panel: Education -->
+            <div class="reveal">
+                <div class="flex items-center space-x-3 mb-4">
+                    <span class="h-px w-8 bg-brand-cyan"></span>
+                    <span class="text-brand-cyan font-mono text-sm uppercase tracking-widest font-bold">Academics</span>
+                </div>
+                <h2 class="text-3xl font-extrabold text-white tracking-tight mb-8">Education</h2>
+
+                <div class="glass-card rounded-2xl p-6 border-brand-border/40 shadow-xl relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-1.5 h-full bg-brand-cyan"></div>
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+                        <span class="px-2.5 py-0.5 rounded bg-brand-cyan/10 border border-brand-cyan/20 text-brand-cyan font-mono text-[10px] sm:text-xs">2018 - 2023</span>
+                        <span class="text-xs text-slate-400 font-mono">Irbid, Jordan</span>
+                    </div>
+                    <h3 class="text-white font-extrabold text-lg sm:text-xl">BEng Computer Network & Security Engineering</h3>
+                    <p class="text-slate-400 text-sm mt-1">Jordan University of Science and Technology (JUST)</p>
+                    
+                    <div class="mt-4 pt-4 border-t border-slate-800/80">
+                        <div class="text-xs font-mono text-brand-cyan mb-2">Languages Profile:</div>
+                        <div class="space-y-3">
+                            <div>
+                                <div class="flex justify-between text-xs mb-1.5">
+                                    <span class="text-slate-300">Arabic (Native)</span>
+                                    <span class="text-slate-400 font-mono text-[10px]">100%</span>
+                                </div>
+                                <div class="w-full h-1 bg-slate-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-brand-cyan rounded-full w-[100%]"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs mb-1.5">
+                                    <span class="text-slate-300">English (Professional Working Proficiency)</span>
+                                    <span class="text-slate-400 font-mono text-[10px]">85%</span>
+                                </div>
+                                <div class="w-full h-1 bg-slate-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-brand-cyan rounded-full w-[85%]"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel: Volunteering & Leadership -->
+            <div class="reveal">
+                <div class="flex items-center space-x-3 mb-4">
+                    <span class="h-px w-8 bg-brand-teal"></span>
+                    <span class="text-brand-teal font-mono text-sm uppercase tracking-widest font-bold">Community</span>
+                </div>
+                <h2 class="text-3xl font-extrabold text-white tracking-tight mb-8">Volunteering</h2>
+
+                <div class="space-y-6">
+                    <!-- Vol 1 -->
+                    <div class="glass-card rounded-2xl p-6 border-brand-border/40 shadow-xl flex items-start space-x-4">
+                        <div class="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center text-brand-teal flex-shrink-0">
+                            <i class="fa-solid fa-users-gear"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-extrabold text-lg">Owner & Team Leader</h3>
+                            <div class="text-brand-teal text-sm font-medium font-mono mb-2">Hemam Society Team</div>
+                            <p class="text-slate-400 text-sm leading-relaxed font-light">Directing group initiatives, student onboarding coordination, and facilitating local community help events.</p>
+                        </div>
+                    </div>
+                    <!-- Vol 2 -->
+                    <div class="glass-card rounded-2xl p-6 border-brand-border/40 shadow-xl flex items-start space-x-4">
+                        <div class="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center text-brand-teal flex-shrink-0">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-extrabold text-lg">Academic Team Leader</h3>
+                            <div class="text-brand-teal text-sm font-medium font-mono mb-2">Kahrabji & NES Academic Team</div>
+                            <p class="text-slate-400 text-sm leading-relaxed font-light">Supervising tutoring campaigns, sharing technical reviews, and engineering network security review sessions for engineering undergraduates.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION: CONTACT & FOOTER -->
+    <section id="contact" class="py-24 max-w-7xl mx-auto px-6 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start reveal">
+            
+            <!-- Contact Info / Left -->
+            <div class="lg:col-span-5 space-y-6">
+                <div class="flex items-center space-x-3 mb-4">
+                    <span class="h-px w-8 bg-brand-cyan"></span>
+                    <span class="text-brand-cyan font-mono text-sm uppercase tracking-widest font-bold">Contact</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Let's Connect</h2>
+                <p class="text-slate-400 text-base font-light leading-relaxed">
+                    Have an offer for me? You can contact me directly, or drop a message using the form.
+                </p>
+
+                <div class="space-y-4 pt-4">
+                    <!-- Item 1 -->
+                    <a href="mailto:mohdabuhammad1@gmail.com" class="flex items-center space-x-4 p-4 rounded-xl bg-slate-900/40 border border-brand-border/30 hover:border-brand-cyan/20 transition-all duration-200">
+                        <div class="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center text-brand-cyan text-base">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div>
+                            <div class="text-[10px] font-mono text-slate-500 uppercase tracking-wider">Email Address</div>
+                            <div class="text-white text-sm font-semibold select-all">mohdabuhammad1@gmail.com</div>
+                        </div>
+                    </a>
+                    <!-- Item 2 -->
+                    <a href="tel:+962796364398" class="flex items-center space-x-4 p-4 rounded-xl bg-slate-900/40 border border-brand-border/30 hover:border-brand-cyan/20 transition-all duration-200">
+                        <div class="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center text-brand-cyan text-base">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <div class="text-[10px] font-mono text-slate-500 uppercase tracking-wider">Phone Number</div>
+                            <div class="text-white text-sm font-semibold select-all">+962 79 636 4398</div>
+                        </div>
+                    </a>
+                    <!-- Item 3 -->
+                    <div class="flex items-center space-x-4 p-4 rounded-xl bg-slate-900/40 border border-brand-border/30">
+                        <div class="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center text-brand-cyan text-base">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <div class="text-[10px] font-mono text-slate-500 uppercase tracking-wider">Office Location</div>
+                            <div class="text-white text-sm font-semibold">Amman, Jordan</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form / Right -->
+            <div class="lg:col-span-7 glass-card rounded-2xl p-6 sm:p-8 border-brand-border/40 shadow-2xl relative">
+                <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-5">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div class="space-y-1.5">
+                            <label for="form-name" class="text-xs font-mono text-slate-400 uppercase tracking-wider">Your Name</label>
+                            <input type="text" id="form-name" required class="w-full bg-slate-900 border border-brand-border/60 focus:border-brand-cyan/60 rounded-lg px-4 py-3 text-sm text-white focus:outline-none transition-colors" placeholder="Mohammad AbuHammad">
+                        </div>
+                        <div class="space-y-1.5">
+                            <label for="form-email" class="text-xs font-mono text-slate-400 uppercase tracking-wider">Email Address</label>
+                            <input type="email" id="form-email" required class="w-full bg-slate-900 border border-brand-border/60 focus:border-brand-cyan/60 rounded-lg px-4 py-3 text-sm text-white focus:outline-none transition-colors" placeholder="mohammad@example.com">
+                        </div>
+                    </div>
+                    <div class="space-y-1.5">
+                        <label for="form-subject" class="text-xs font-mono text-slate-400 uppercase tracking-wider">Subject</label>
+                        <input type="text" id="form-subject" required class="w-full bg-slate-900 border border-brand-border/60 focus:border-brand-cyan/60 rounded-lg px-4 py-3 text-sm text-white focus:outline-none transition-colors" placeholder="Inquiry about opportunities">
+                    </div>
+                    <div class="space-y-1.5">
+                        <label for="form-message" class="text-xs font-mono text-slate-400 uppercase tracking-wider">Message</label>
+                        <textarea id="form-message" rows="5" required class="w-full bg-slate-900 border border-brand-border/60 focus:border-brand-cyan/60 rounded-lg px-4 py-3 text-sm text-white focus:outline-none transition-colors resize-none" placeholder="Your message here..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="w-full py-4 rounded-lg bg-gradient-to-r from-brand-cyan to-brand-teal text-white font-bold text-center hover:opacity-95 hover:scale-[1.01] active:scale-95 transition-all duration-200">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER WITH TERMINAL MODE EASTER EGG -->
+    <footer class="bg-slate-950 border-t border-slate-900/80 py-12 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="text-center md:text-left space-y-1">
+                <div class="text-sm font-semibold text-white">Mohammad Abuhammad</div>
+                <div class="text-xs text-slate-500 font-mono">IT Operations Specialist | Network & Security Engineer</div>
+            </div>
+
+            <!-- Interactive terminal easter egg toggle -->
+            <button onclick="toggleTerminal()" class="px-4 py-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-brand-cyan/40 text-slate-400 hover:text-brand-cyan text-xs font-mono flex items-center space-x-2 transition-all duration-300" title="Open Interactive CLI Terminal">
+                <i class="fa-solid fa-terminal text-[11px] animate-pulse"></i>
+                <span>Interactive Terminal Mode</span>
+            </button>
+
+            <div class="text-center md:text-right space-y-1">
+                <div class="text-[10px] text-slate-600 font-mono">&copy; 2026. All rights reserved.</div>
+            </div>
+        </div>
+    </footer>
+
+    </div>
+
+    <!-- ADMIN DASHBOARD PANEL -->
+    <div id="admin-view" class="hidden min-h-screen py-12 px-6 max-w-7xl mx-auto relative z-10 flex flex-col justify-center">
+        
+        <!-- Decryption Lock Screen -->
+        <div id="admin-lock-screen" class="max-w-md w-full mx-auto py-12 px-8 glass-card rounded-2xl border-brand-border/40 shadow-2xl space-y-6 text-center">
+            <div class="w-16 h-16 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-brand-cyan text-2xl mx-auto shadow-lg shadow-brand-cyan/5">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+            <div>
+                <h2 class="text-xl font-bold text-white">Console Decryption</h2>
+                <p class="text-xs text-slate-500 font-mono mt-1">Authorization required</p>
+            </div>
+            <form id="admin-login-form" onsubmit="handleAdminLogin(event)" class="space-y-4">
+                <input type="password" id="admin-password-input" class="w-full bg-slate-900 border border-brand-border/60 focus:border-brand-cyan/60 rounded-lg px-4 py-3 text-sm text-white focus:outline-none transition-colors text-center tracking-widest font-mono" placeholder="••••••••" required>
+                <div id="admin-login-error" class="hidden text-xs text-red-400 font-mono">Invalid decryption key. Please try again.</div>
+                <button type="submit" class="w-full py-3 rounded-lg bg-gradient-to-r from-brand-cyan to-brand-teal text-white font-bold text-sm transition-all focus:outline-none hover:opacity-95 shadow-md shadow-brand-cyan/15 active:scale-95">
+                    Decrypt Console
+                </button>
+            </form>
+            <div class="pt-4 border-t border-slate-800/80">
+                <a href="#" class="text-xs font-mono text-slate-400 hover:text-white transition-colors">
+                    <i class="fa-solid fa-arrow-left mr-1"></i> Return to Portfolio
+                </a>
+            </div>
+        </div>
+
+        <!-- Authenticated Dashboard View -->
+        <div id="admin-dashboard-content" class="hidden space-y-8">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-slate-800 pb-6">
+                <div>
+                    <div class="flex items-center space-x-2 text-xs font-mono text-brand-cyan uppercase tracking-widest font-bold">
+                        <i class="fa-solid fa-shield-halved animate-pulse"></i>
+                        <span>Operations Dashboard</span>
+                    </div>
+                    <h1 class="text-3xl font-extrabold text-white mt-1">Contact Messages Console</h1>
+                </div>
+                <div class="flex flex-wrap items-center gap-3">
+                    <button onclick="exportMessages()" class="px-4 py-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-brand-cyan/40 text-slate-300 hover:text-white font-semibold text-sm transition-all flex items-center space-x-2 focus:outline-none">
+                        <i class="fa-solid fa-download"></i>
+                        <span>Export JSON</span>
+                    </button>
+                    <button onclick="clearAllMessages()" class="px-4 py-2 rounded-lg bg-red-500/10 border border-red-500/20 hover:bg-red-500/20 text-red-400 hover:text-red-300 font-semibold text-sm transition-all flex items-center space-x-2 focus:outline-none">
+                        <i class="fa-solid fa-trash-can"></i>
+                        <span>Clear All</span>
+                    </button>
+                    <button onclick="logoutAdmin()" class="px-4 py-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-red-500/20 text-slate-300 hover:text-red-400 font-semibold text-sm transition-all flex items-center space-x-2 focus:outline-none" title="Lock Console Screen">
+                        <i class="fa-solid fa-lock"></i>
+                        <span>Lock Console</span>
+                    </button>
+                    <a href="#" class="px-4 py-2 rounded-lg bg-gradient-to-r from-brand-cyan to-brand-teal text-white font-bold text-sm transition-all flex items-center space-x-2 shadow-md shadow-brand-cyan/10">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <span>Exit Dashboard</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Metrics Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div class="glass-card rounded-2xl p-6 border-brand-border/40 shadow-xl">
+                    <div class="text-xs font-mono text-brand-cyan uppercase tracking-wider mb-2">Total Inquiries</div>
+                    <div class="text-white font-extrabold text-3xl font-mono" id="admin-total-count">0</div>
+                </div>
+                <div class="glass-card rounded-2xl p-6 border-brand-border/40 shadow-xl">
+                    <div class="text-xs font-mono text-brand-teal uppercase tracking-wider mb-2">Active Security Alerts</div>
+                    <div class="text-emerald-400 font-extrabold text-3xl font-mono">0 <span class="text-xs font-sans font-normal text-slate-400 ml-1">(Normal)</span></div>
+                </div>
+                <div class="glass-card rounded-2xl p-6 border-brand-border/40 shadow-xl">
+                    <div class="text-xs font-mono text-slate-400 uppercase tracking-wider mb-2">System Integrity Status</div>
+                    <div class="text-brand-cyan font-extrabold text-3xl font-mono">100%</div>
+                </div>
+            </div>
+
+            <!-- Messages Table -->
+            <div class="glass-card rounded-2xl border-brand-border/40 overflow-hidden shadow-2xl">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-slate-950 border-b border-brand-border/60">
+                                <th class="px-6 py-4 text-xs font-mono text-slate-400 uppercase tracking-wider">Sender</th>
+                                <th class="px-6 py-4 text-xs font-mono text-slate-400 uppercase tracking-wider">Email Address</th>
+                                <th class="px-6 py-4 text-xs font-mono text-slate-400 uppercase tracking-wider">Subject</th>
+                                <th class="px-6 py-4 text-xs font-mono text-slate-400 uppercase tracking-wider">Message Content</th>
+                                <th class="px-6 py-4 text-xs font-mono text-slate-400 uppercase tracking-wider">Date Received</th>
+                                <th class="px-6 py-4 text-xs font-mono text-slate-400 uppercase tracking-wider text-right">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-messages-list" class="divide-y divide-slate-800/40">
+                            <!-- Dynamic Rows -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- INTERACTIVE TERMINAL DIALOG/MODAL -->
+    <div id="terminal-modal" class="fixed inset-0 bg-brand-dark/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="w-full max-w-3xl bg-slate-950 border border-slate-800/90 rounded-2xl overflow-hidden shadow-2xl flex flex-col h-[500px]">
+            <!-- Terminal Header -->
+            <div class="bg-slate-900 px-4 py-3 flex items-center justify-between border-b border-slate-800/80">
+                <div class="flex items-center space-x-2">
+                    <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                    <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                    <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                    <span class="text-xs font-mono text-slate-400 ml-2">guest@abuhammad-ops-cli: ~</span>
+                </div>
+                <button onclick="toggleTerminal()" class="text-slate-400 hover:text-white transition-colors" aria-label="Close Terminal">
+                    <i class="fa-solid fa-xmark text-sm"></i>
+                </button>
+            </div>
+            <!-- Terminal Body -->
+            <div id="terminal-body" class="flex-1 p-4 font-mono text-xs sm:text-sm text-emerald-400 overflow-y-auto space-y-3 bg-slate-950">
+                <div>Welcome to Abuhammad IT Operations simulated CLI (v1.0.2).</div>
+                <div>Type <span class="text-white font-bold">help</span> to view available operations, or <span class="text-white font-bold">matrix</span> for a visual display.</div>
+                <div class="h-2"></div>
+            </div>
+            <!-- Terminal Input Line -->
+            <div class="bg-slate-900/60 p-3 border-t border-slate-800/80 flex items-center space-x-2 font-mono text-xs sm:text-sm">
+                <span class="text-brand-cyan font-semibold">guest@abuhammad-ops-cli:~$</span>
+                <input type="text" id="terminal-input" class="flex-1 bg-transparent text-emerald-400 border-none outline-none focus:ring-0 focus:border-none p-0" autocomplete="off" autofocus>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROJECT BREAKDOWN DETAIL MODAL -->
+    <div id="project-modal" class="fixed inset-0 bg-brand-dark/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="w-full max-w-2xl bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col max-h-[85vh]">
+            <!-- Modal Header -->
+            <div class="bg-slate-950 px-6 py-4 border-b border-slate-800 flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div id="modal-project-icon" class="w-8 h-8 rounded-lg bg-brand-cyan/10 border border-brand-cyan/20 flex items-center justify-center text-brand-cyan text-sm"></div>
+                    <h3 id="modal-project-title" class="text-white font-extrabold text-lg">Project Details</h3>
+                </div>
+                <button onclick="closeProjectModal()" class="text-slate-400 hover:text-white transition-colors" aria-label="Close Detail View">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <!-- Modal Body -->
+            <div class="p-6 overflow-y-auto space-y-6 text-slate-300">
+                <div>
+                    <h4 class="text-xs font-mono text-brand-cyan uppercase tracking-wider mb-2">Scope Overview</h4>
+                    <p id="modal-project-desc" class="text-sm font-light leading-relaxed"></p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-mono text-brand-teal uppercase tracking-wider mb-3">Key Technical Achievements</h4>
+                    <ul id="modal-project-features" class="space-y-2.5 text-xs sm:text-sm font-light"></ul>
+                </div>
+                <div>
+                    <h4 class="text-xs font-mono text-slate-400 uppercase tracking-wider mb-2">Tech Stack Used</h4>
+                    <div id="modal-project-tags" class="flex flex-wrap gap-2"></div>
+                </div>
+            </div>
+            <!-- Modal Footer -->
+            <div class="bg-slate-950 px-6 py-4 border-t border-slate-800 flex justify-end">
+                <button onclick="closeProjectModal()" class="px-5 py-2 rounded-lg bg-slate-800 text-slate-300 hover:text-white font-semibold text-sm transition-colors focus:outline-none">
+                    Close Details
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- BACK TO TOP FLOATING BUTTON -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 z-40 w-10 h-10 rounded-full bg-slate-900 border border-slate-800 text-slate-400 hover:text-white flex items-center justify-center shadow-lg transition-all duration-300 opacity-0 translate-y-10 pointer-events-none hover:border-brand-cyan/40" onclick="scrollToTop()" aria-label="Back to Top">
+        <i class="fa-solid fa-chevron-up text-sm"></i>
+    </button>
+
+    <!-- GENERAL CLIENT ACTIONS & EASTER EGGS LOGIC -->
+    <script>
+        // Hero background Canvas Node Network simulation
+        const canvas = document.getElementById('network-canvas');
+        const ctx = canvas.getContext('2d');
+        let points = [];
+        let connectionDistance = 120;
+        
+        function resizeCanvas() {
+            canvas.width = canvas.parentElement.offsetWidth;
+            canvas.height = canvas.parentElement.offsetHeight;
+            initPoints();
+        }
+
+        function initPoints() {
+            points = [];
+            const count = Math.min(Math.floor(canvas.width / 15), 65);
+            for(let i=0; i<count; i++) {
+                points.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    vx: (Math.random() - 0.5) * 0.35,
+                    vy: (Math.random() - 0.5) * 0.35,
+                    radius: Math.random() * 1.5 + 0.8
+                });
+            }
+        }
+
+        function drawNetwork() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw nodes
+            ctx.fillStyle = '#06b6d4';
+            points.forEach(p => {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fill();
+                
+                // Move nodes
+                p.x += p.vx;
+                p.y += p.vy;
+                
+                // Bound check
+                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+            });
+
+            // Draw links
+            ctx.lineWidth = 0.5;
+            for(let i=0; i<points.length; i++) {
+                for(let j=i+1; j<points.length; j++) {
+                    const dx = points[i].x - points[j].x;
+                    const dy = points[i].y - points[j].y;
+                    const dist = Math.sqrt(dx*dx + dy*dy);
+                    if (dist < connectionDistance) {
+                        const alpha = (1 - (dist / connectionDistance)) * 0.15;
+                        ctx.strokeStyle = `rgba(6, 182, 212, ${alpha})`;
+                        ctx.beginPath();
+                        ctx.moveTo(points[i].x, points[i].y);
+                        ctx.lineTo(points[j].x, points[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            requestAnimationFrame(drawNetwork);
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        document.addEventListener('DOMContentLoaded', () => {
+            resizeCanvas();
+            drawNetwork();
+            startTypingEffect();
+            setupIntersectionObserver();
+            setupCounterAnimations();
+            
+            // Seed initial message if empty
+            if (!localStorage.getItem('form_messages')) {
+                localStorage.setItem('form_messages', JSON.stringify([
+                    {
+                        id: 1,
+                        name: "Mohammad AbuHammad",
+                        email: "mohammad@example.com",
+                        subject: "Interactive CV Setup Verification",
+                        message: "This is a pre-seeded test inquiry confirming that the contact form state management and local storage routing loops are fully functional.",
+                        date: new Date().toLocaleString()
+                    }
+                ]));
+            }
+            
+            // Check routing on load
+            handleRouting();
+
+            // Run preloader sequence
+            startPreloader();
+        });
+
+        // OS Console Tab Switcher
+        function switchOSTab(tab) {
+            const btnWin = document.getElementById('os-btn-windows');
+            const btnLin = document.getElementById('os-btn-linux');
+            const logWin = document.getElementById('os-log-windows');
+            const logLin = document.getElementById('os-log-linux');
+            
+            if (tab === 'windows') {
+                btnWin.className = "px-4 py-2 rounded-md text-xs font-mono font-semibold transition-all focus:outline-none bg-brand-cyan/15 text-brand-cyan";
+                btnLin.className = "px-4 py-2 rounded-md text-xs font-mono font-semibold transition-all focus:outline-none text-slate-400 hover:text-white";
+                logWin.classList.remove('hidden');
+                logLin.classList.add('hidden');
+            } else {
+                btnLin.className = "px-4 py-2 rounded-md text-xs font-mono font-semibold transition-all focus:outline-none bg-brand-cyan/15 text-brand-cyan";
+                btnWin.className = "px-4 py-2 rounded-md text-xs font-mono font-semibold transition-all focus:outline-none text-slate-400 hover:text-white";
+                logLin.classList.remove('hidden');
+                logWin.classList.add('hidden');
+            }
+        }
+
+        // PowerShell Preloader Sequence
+        function startPreloader() {
+            const consoleEl = document.getElementById('preloader-console');
+            const preloaderLines = [
+                { text: "Windows PowerShell", color: "text-slate-300 font-bold" },
+                { text: "Copyright (C) Microsoft Corporation. All rights reserved.", color: "text-slate-400" },
+                { text: "", color: "" },
+                { text: "PS C:\\Users\\Administrator> .\\Invoke-ADSecurityAudit.ps1 -Scope Domain", color: "text-slate-100 font-bold" },
+                { text: "VERBOSE: Loading ActiveDirectory PowerShell module...", color: "text-yellow-500" },
+                { text: "VERBOSE: Connecting to Domain Controller corporate.local...", color: "text-yellow-500" },
+                { text: "SUCCESS: Connected. Gathering active GPO mappings...", color: "text-emerald-400 font-semibold" },
+                { text: "VERBOSE: Running Active Directory account security compliance checks...", color: "text-yellow-500" },
+                { text: "SUCCESS: 0 expired accounts found. Compliance audit PASSED.", color: "text-emerald-400 font-semibold" },
+                { text: "VERBOSE: Deploying host-level vulnerability remediation security controls...", color: "text-yellow-500" },
+                { text: "SUCCESS: LSA Protection and registry security configurations enforced.", color: "text-emerald-400 font-semibold" },
+                { text: "VERBOSE: Initializing Mohammad Abuhammad Portfolio environment...", color: "text-yellow-500" },
+                { text: "PROGRESS: [||||||||||||||||||||||||||||||] 100%", color: "text-cyan-400 font-bold" },
+                { text: "SUCCESS: Security environment initialization complete.", color: "text-emerald-400 font-bold" },
+                { text: "VERBOSE: Decrypting portfolio view...", color: "text-yellow-500" }
+            ];
+
+            let lineIdx = 0;
+            function printLine() {
+                if (lineIdx < preloaderLines.length) {
+                    const line = preloaderLines[lineIdx];
+                    const div = document.createElement('div');
+                    div.className = line.color || 'text-cyan-400';
+                    div.textContent = line.text;
+                    consoleEl.appendChild(div);
+                    consoleEl.scrollTop = consoleEl.scrollHeight;
+                    lineIdx++;
+                    
+                    let speed = 90 + Math.random() * 80;
+                    if (line.text.includes("SUCCESS")) speed = 250;
+                    if (line.text.includes("PROGRESS")) speed = 400;
+                    
+                    setTimeout(printLine, speed);
+                } else {
+                    setTimeout(() => {
+                        const preloader = document.getElementById('preloader');
+                        const portfolio = document.getElementById('portfolio-view');
+                        
+                        preloader.classList.add('opacity-0', 'pointer-events-none');
+                        portfolio.classList.remove('opacity-0', 'scale-95');
+                        portfolio.classList.add('opacity-100', 'scale-100');
+                    }, 500);
+                }
+            }
+
+            // Respect prefers-reduced-motion
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                const preloader = document.getElementById('preloader');
+                const portfolio = document.getElementById('portfolio-view');
+                preloader.classList.add('hidden');
+                portfolio.classList.remove('opacity-0', 'scale-95');
+                portfolio.classList.add('opacity-100', 'scale-100');
+                return;
+            }
+
+            printLine();
+        }
+
+        // Typing animation effect in Hero title
+        const titles = [
+            "IT Operations Specialist",
+            "Enterprise Automation Engineer",
+            "Network & Security Specialist",
+            "PowerShell Automation Expert"
+        ];
+        let titleIdx = 0;
+        let charIdx = 0;
+        let isDeleting = false;
+        const typedTextEl = document.getElementById('typed-text');
+
+        function startTypingEffect() {
+            const currentTitle = titles[titleIdx];
+            if (isDeleting) {
+                typedTextEl.textContent = currentTitle.substring(0, charIdx - 1);
+                charIdx--;
+            } else {
+                typedTextEl.textContent = currentTitle.substring(0, charIdx + 1);
+                charIdx++;
+            }
+
+            let speed = isDeleting ? 30 : 60;
+            if (!isDeleting && charIdx === currentTitle.length) {
+                speed = 2200; // Hold full text
+                isDeleting = true;
+            } else if (isDeleting && charIdx === 0) {
+                isDeleting = false;
+                titleIdx = (titleIdx + 1) % titles.length;
+                speed = 400; // Delay before starting next word
+            }
+
+            // Respect prefers-reduced-motion
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                typedTextEl.textContent = titles[0]; // just show first static title
+                return;
+            }
+
+            setTimeout(startTypingEffect, speed);
+        }
+
+        // Stats Counters Animation
+        function setupCounterAnimations() {
+            const targets = [
+                { id: 'stat-experience', val: 3, suffix: '+' },
+                { id: 'stat-endpoints', val: 2500, suffix: '+' },
+                { id: 'stat-tickets', val: 40, suffix: '%' }
+            ];
+
+            const obs = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        targets.forEach(t => {
+                            let curr = 0;
+                            const el = document.getElementById(t.id);
+                            const interval = setInterval(() => {
+                                curr += Math.ceil(t.val / 30);
+                                if (curr >= t.val) {
+                                    curr = t.val;
+                                    clearInterval(interval);
+                                }
+                                el.textContent = curr + t.suffix;
+                            }, 35);
+                        });
+                        observer.disconnect(); // Trigger once
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            obs.observe(document.getElementById('hero'));
+        }
+
+        // Scroll Reveal Animations
+        function setupIntersectionObserver() {
+            const reveals = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, {
+                threshold: 0.08,
+                rootMargin: '0px 0px -50px 0px'
+            });
+            reveals.forEach(el => observer.observe(el));
+        }
+
+        // Sticky Navigation Adjustments & Back to Top Toggle
+        const header = document.getElementById('main-header');
+        const backToTop = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('py-2', 'shadow-xl');
+                header.classList.remove('h-20');
+            } else {
+                header.classList.remove('py-2', 'shadow-xl');
+                header.classList.add('h-20');
+            }
+
+            if (window.scrollY > 600) {
+                backToTop.classList.remove('opacity-0', 'translate-y-10', 'pointer-events-none');
+            } else {
+                backToTop.classList.add('opacity-0', 'translate-y-10', 'pointer-events-none');
+            }
+        });
+
+        // Mobile menu toggle logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (mobileMenu.classList.contains('hidden')) {
+                icon.className = 'fa-solid fa-bars-staggered text-xl';
+            } else {
+                icon.className = 'fa-solid fa-xmark text-xl';
+            }
+        });
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenuBtn.querySelector('i').className = 'fa-solid fa-bars-staggered text-xl';
+            });
+        });
+
+        // Expand/Collapse Key Projects
+        function toggleExpand(id) {
+            const el = document.getElementById(id);
+            const icon = document.getElementById(id + '-icon');
+            el.classList.toggle('hidden');
+            if (el.classList.contains('hidden')) {
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // Download CV trigger
+        function downloadCV() {
+            const link = document.createElement('a');
+            link.href = '/cv/Mohammad_Abuhammad_CV_2026.pdf';
+            link.download = 'Mohammad_Abuhammad_CV_2026.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // Contact Form Submission Handler
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('form-name').value;
+            const email = document.getElementById('form-email').value;
+            const subject = document.getElementById('form-subject').value;
+            const msg = document.getElementById('form-message').value;
+
+            // Form Validation Checks
+            if(!name || !email || !subject || !msg) {
+                alert("Please fill in all the details.");
+                return;
+            }
+
+            // Save to localStorage
+            const messages = JSON.parse(localStorage.getItem('form_messages') || '[]');
+            messages.push({
+                id: Date.now(),
+                name: name,
+                email: email,
+                subject: subject,
+                message: msg,
+                date: new Date().toLocaleString()
+            });
+            localStorage.setItem('form_messages', JSON.stringify(messages));
+
+            alert(`Thank you, ${name}! Your inquiry regarding "${subject}" has been successfully logged. Visit #admin to view the Admin Dashboard.`);
+            e.target.reset();
+        }
+
+        // Routing Logic
+        function handleRouting() {
+            const isAdmin = window.location.hash === '#admin';
+            const portfolioView = document.getElementById('portfolio-view');
+            const adminView = document.getElementById('admin-view');
+            const lockScreen = document.getElementById('admin-lock-screen');
+            const dashboardContent = document.getElementById('admin-dashboard-content');
+            
+            if (isAdmin) {
+                portfolioView.classList.add('hidden');
+                adminView.classList.remove('hidden');
+                
+                // Check authorization status
+                const isAuthed = sessionStorage.getItem('admin_authenticated') === 'true';
+                if (isAuthed) {
+                    lockScreen.classList.add('hidden');
+                    dashboardContent.classList.remove('hidden');
+                    renderAdminDashboard();
+                } else {
+                    lockScreen.classList.remove('hidden');
+                    dashboardContent.classList.add('hidden');
+                }
+                
+                document.title = "Admin Console | Mohammad Abuhammad";
+            } else {
+                portfolioView.classList.remove('hidden');
+                adminView.classList.add('hidden');
+                document.title = "Mohammad Abuhammad | IT Operations Specialist & Automation Engineer";
+            }
+        }
+
+        // Handle Admin Authentication
+        function handleAdminLogin(e) {
+            e.preventDefault();
+            const password = document.getElementById('admin-password-input').value;
+            const errorEl = document.getElementById('admin-login-error');
+            
+            if (password === 'admin123') {
+                sessionStorage.setItem('admin_authenticated', 'true');
+                errorEl.classList.add('hidden');
+                document.getElementById('admin-password-input').value = '';
+                handleRouting();
+            } else {
+                errorEl.classList.remove('hidden');
+                document.getElementById('admin-password-input').value = '';
+                
+                // Add shake effect to login box
+                const lockBox = document.getElementById('admin-lock-screen');
+                lockBox.classList.add('animate-bounce');
+                setTimeout(() => { lockBox.classList.remove('animate-bounce'); }, 800);
+            }
+        }
+
+        // Lock Dashboard Session
+        function logoutAdmin() {
+            sessionStorage.removeItem('admin_authenticated');
+            handleRouting();
+        }
+
+        // Render Dashboard Content
+        function renderAdminDashboard() {
+            const messages = JSON.parse(localStorage.getItem('form_messages') || '[]');
+            const listContainer = document.getElementById('admin-messages-list');
+            const totalCountEl = document.getElementById('admin-total-count');
+            
+            totalCountEl.textContent = messages.length;
+            listContainer.innerHTML = '';
+            
+            if(messages.length === 0) {
+                listContainer.innerHTML = `
+                    <tr>
+                        <td colspan="6" class="px-6 py-12 text-center text-slate-500 font-mono text-sm">
+                            <i class="fa-solid fa-folder-open text-3xl mb-3 block text-slate-600"></i>
+                            No messages received yet. Submit the contact form to see them here!
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+            
+            messages.forEach((m) => {
+                const tr = document.createElement('tr');
+                tr.className = "border-b border-slate-800/80 hover:bg-slate-900/35 transition-colors";
+                tr.innerHTML = `
+                    <td class="px-6 py-4 text-sm font-semibold text-white">${escapeHtml(m.name)}</td>
+                    <td class="px-6 py-4 text-sm text-brand-cyan font-mono">${escapeHtml(m.email)}</td>
+                    <td class="px-6 py-4 text-sm text-slate-300 font-medium">${escapeHtml(m.subject)}</td>
+                    <td class="px-6 py-4 text-sm text-slate-400 max-w-xs truncate" title="${escapeHtml(m.message)}">${escapeHtml(m.message)}</td>
+                    <td class="px-6 py-4 text-sm font-mono text-slate-500">${m.date}</td>
+                    <td class="px-6 py-4 text-right text-sm">
+                        <button onclick="deleteMessage(${m.id})" class="text-red-400 hover:text-red-300 px-2.5 py-1.5 rounded bg-red-500/10 hover:bg-red-500/20 transition-all focus:outline-none" title="Delete message">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </td>
+                `;
+                listContainer.appendChild(tr);
+            });
+        }
+
+        // Delete Individual Message
+        function deleteMessage(id) {
+            let messages = JSON.parse(localStorage.getItem('form_messages') || '[]');
+            messages = messages.filter(m => m.id !== id);
+            localStorage.setItem('form_messages', JSON.stringify(messages));
+            renderAdminDashboard();
+        }
+
+        // Clear All Messages
+        function clearAllMessages() {
+            if(confirm("Are you sure you want to clear all logged messages?")) {
+                localStorage.setItem('form_messages', '[]');
+                renderAdminDashboard();
+            }
+        }
+
+        // Export Logs to JSON
+        function exportMessages() {
+            const messages = localStorage.getItem('form_messages') || '[]';
+            const blob = new Blob([messages], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Form_Inquiries_${Date.now()}.json`;
+            a.click();
+        }
+
+        // HTML Sanitizer Helper
+        function escapeHtml(str) {
+            return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+        }
+
+        window.addEventListener('hashchange', handleRouting);
+
+        // Scroll to top
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Projects Data Structure for modal population
+        const projectsData = {
+            chatbot: {
+                title: "AI-Powered Social Media Chatbot Automation",
+                desc: "Designed and built an advanced customer engagement pipeline using autonomous agents. The chatbot dynamically interacts with customers, processes inputs, qualifies leads, and triggers system routing workflows.",
+                icon: '<i class="fa-solid fa-comments text-brand-cyan"></i>',
+                features: [
+                    "Integrated LLM APIs with chatbot frameworks to allow human-like conversation logic.",
+                    "Built context-routing engine to redirect inquiries to specific subject queues.",
+                    "Implemented lead qualification script saving ~12 hours of manual sorting weekly.",
+                    "Engineered support pipeline handling multi-platform hooks concurrently."
+                ],
+                tags: ["LLM APIs", "Agent Orchestration", "Node.js", "Express", "API Integration", "JSON/REST"]
+            },
+            'ad-bot': {
+                title: "Active Directory Automation via Telegram and WhatsApp",
+                desc: "Developed a secured gateway that connects instant messaging services directly to local domain controllers via webhook integrations. Enables authorized sysadmins to resolve typical account lockouts while on-call.",
+                icon: '<i class="fa-brands fa-telegram text-brand-cyan"></i>',
+                features: [
+                    "Wired n8n workflows with PowerShell endpoint gateways handling authentication details.",
+                    "Strict Chat ID verification & shared secrets lookup enforcing user validation.",
+                    "Allowed lock status check, account unlock, password reset, and enable/disable operations.",
+                    "Implemented safety checks: regex input validation, command logging, and NSSM daemon setup."
+                ],
+                tags: ["n8n Workflows", "PowerShell Cmdlets", "AD Administration", "API Integrations", "Security Hardening"]
+            },
+            'automation-suite': {
+                title: "PowerShell Automation Suite for Enterprise IT Operations",
+                desc: "An orchestration library containing scripts and tools to handle systems maintenance, EDR software repairs, and automated user support updates.",
+                icon: '<i class="fa-solid fa-gears text-brand-cyan"></i>',
+                features: [
+                    "Developed CrowdStrike Falcon cleanups targeting disabled states, safemode registry scripts, and BitLocker control loops.",
+                    "Created Cortex XDR cleanup scripts executing driver filter sweeps and multi-pass agent uninstallation.",
+                    "Automated bulk computer creation, domain-joins, and organizational unit mapping.",
+                    "Engineered remote diagnostics toolsets utilizing WMI, PsExec, and WinRM protocols."
+                ],
+                tags: ["PowerShell Core", "WMI / CIM", "WinRM Cmdlets", "EDR Remediation", "Registry Sweeper"]
+            },
+            'iot-tank': {
+                title: "Smart Water Tank Monitoring System (IoT)",
+                desc: "An IoT monitoring system reading ultrasonic level sensor changes, processing values locally via microcontrollers, and streaming records to databases.",
+                icon: '<i class="fa-solid fa-faucet-drip text-brand-cyan"></i>',
+                features: [
+                    "Configured ESP8266 controller using custom C++ scripts calculating fluid volume.",
+                    "Established real-time Firebase sync updating level status feeds.",
+                    "Built lightweight dashboard frontend with remote pump override toggles.",
+                    "Fitted safety controls preventing dry-run pump damage."
+                ],
+                tags: ["ESP8266 IoT", "C++ / Arduino", "Firebase Realtime DB", "Mobile Overlay UI", "Hardware Design"]
+            }
+        };
+
+        // Modal triggers
+        const projModal = document.getElementById('project-modal');
+        function openProjectModal(key) {
+            const data = projectsData[key];
+            if (!data) return;
+            
+            document.getElementById('modal-project-icon').innerHTML = data.icon;
+            document.getElementById('modal-project-title').textContent = data.title;
+            document.getElementById('modal-project-desc').textContent = data.desc;
+            
+            // Populate features
+            const featuresContainer = document.getElementById('modal-project-features');
+            featuresContainer.innerHTML = '';
+            data.features.forEach(f => {
+                const li = document.createElement('li');
+                li.className = 'flex items-start space-x-2.5';
+                li.innerHTML = `<i class="fa-solid fa-check text-brand-cyan mt-1 flex-shrink-0"></i> <span>${f}</span>`;
+                featuresContainer.appendChild(li);
+            });
+
+            // Populate tags
+            const tagsContainer = document.getElementById('modal-project-tags');
+            tagsContainer.innerHTML = '';
+            data.tags.forEach(t => {
+                const span = document.createElement('span');
+                span.className = 'text-[10px] font-mono px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-slate-400';
+                span.textContent = t;
+                tagsContainer.appendChild(span);
+            });
+
+            projModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProjectModal() {
+            projModal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal when clicking outside
+        projModal.addEventListener('click', (e) => {
+            if(e.target === projModal) closeProjectModal();
+        });
+
+
+        // SIMULATED TERMINAL EASTER EGG SYSTEM
+        const termModal = document.getElementById('terminal-modal');
+        const termInput = document.getElementById('terminal-input');
+        const termBody = document.getElementById('terminal-body');
+
+        function toggleTerminal() {
+            termModal.classList.toggle('hidden');
+            if(!termModal.classList.contains('hidden')) {
+                termInput.focus();
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Handle terminal commands
+        termInput.addEventListener('keydown', (e) => {
+            if(e.key === 'Enter') {
+                const val = termInput.value.trim().toLowerCase();
+                termInput.value = '';
+                if(val) {
+                    processTerminalCommand(val);
+                }
+            }
+        });
+
+        // Close terminal modal when clicking outside
+        termModal.addEventListener('click', (e) => {
+            if(e.target === termModal) toggleTerminal();
+        });
+
+        function printToTerminal(text, isInput = false, color = '') {
+            const div = document.createElement('div');
+            if(isInput) {
+                div.innerHTML = `<span class="text-brand-cyan">guest@abuhammad-ops-cli:~$</span> <span class="text-white">${text}</span>`;
+            } else {
+                div.innerHTML = `<span class="${color}">${text}</span>`;
+            }
+            termBody.appendChild(div);
+            termBody.scrollTop = termBody.scrollHeight;
+        }
+
+        function processTerminalCommand(rawCmd) {
+            const cmd = rawCmd.trim().toLowerCase().split(' ')[0];
+            printToTerminal(rawCmd, true);
+
+            switch(cmd) {
+                case 'help':
+                    printToTerminal("Available commands:");
+                    printToTerminal("  skills          List all key technical capabilities");
+                    printToTerminal("  experience      Display career timeline summarized");
+                    printToTerminal("  projects        Show highlights of automation work");
+                    printToTerminal("  education       View academic certificates/degrees");
+                    printToTerminal("  contact         Get phone, email, and social handles");
+                    printToTerminal("  matrix          Initiate retro green cyber sweep");
+                    printToTerminal("  clear           Clear the screen buffer");
+                    printToTerminal("  about           Display professional engineer summary");
+                    printToTerminal("  help            Show this list");
+                    break;
+                case 'about':
+                    printToTerminal("IT Operations, Network, and Security Engineer with 3+ years experience. Expert in endpoint remediation (CrowdStrike/Cortex), systems admin, and PowerShell script automation.");
+                    break;
+                case 'skills':
+                    printToTerminal("TECHNICAL SKILLS DIRECTORY:");
+                    printToTerminal("  - Security: CrowdStrike Falcon, Cortex XDR, EDR, Vulnerability Sweeper");
+                    printToTerminal("  - Automation: Advanced PowerShell, Bash scripting, n8n integration, APIs");
+                    printToTerminal("  - Systems: Windows Server, Active Directory, GPO, Azure Entra ID, M365");
+                    printToTerminal("  - Endpoint Engines: IBM BigFix, ManageEngine Endpoint Central, SCCM, Intune");
+                    printToTerminal("  - Networks: TCP/IP, VLANs, routing protocols, firewalls, network mapping");
+                    break;
+                case 'experience':
+                    printToTerminal("CAREER SUMMARY:");
+                    printToTerminal("  1. Concentrix (Oct 2025 - Present) | IT Operations Specialist");
+                    printToTerminal("     - Endpoint management, security alerts response, GPO deployment, PowerShell tooling.");
+                    printToTerminal("  2. Aramex International (Aug 2023 - Oct 2025) | Corporate IT Executive");
+                    printToTerminal("     - Hardware troubleshooting, AD provisioning, SCCM management, Intune policies.");
+                    printToTerminal("  3. ESCO - Zain (Apr 2022 - Aug 2023) | Fiber Product Support");
+                    break;
+                case 'projects':
+                    printToTerminal("PORTFOLIO HIGHLIGHTS:");
+                    printToTerminal("  * AI Social Chatbot : Context routing, conversational qualifiers.");
+                    printToTerminal("  * AD Bot Automation : Secure n8n+Telegram account control webhook.");
+                    printToTerminal("  * PowerShell Suite  : Cortex XDR and CrowdStrike silent uninstall/reinstall sweeps.");
+                    printToTerminal("  * Smart Tank IoT    : Ultrasonic levels reporting to Firebase database.");
+                    break;
+                case 'education':
+                    printToTerminal("ACADEMICS & LICENSES:");
+                    printToTerminal("  - JUST University: BEng Computer Network & Security Engineering (2018-2023)");
+                    printToTerminal("  - Credentials: CCNA (Completed), Fortinet NSE 1 & NSE 2, EC-Council NDE, EHE");
+                    break;
+                case 'contact':
+                    printToTerminal("COMMUNICATION CHANNELS:");
+                    printToTerminal("  - Email : mohdabuhammad1@gmail.com");
+                    printToTerminal("  - Phone : +962 79 636 4398");
+                    printToTerminal("  - Location: Amman, Jordan");
+                    break;
+                case 'clear':
+                    termBody.innerHTML = '';
+                    break;
+                case 'matrix':
+                    printToTerminal("Initiating digital rain protocol...", false, "text-emerald-500");
+                    let count = 0;
+                    const interval = setInterval(() => {
+                        let line = '';
+                        for(let i=0; i<30; i++) {
+                            line += Math.random() > 0.5 ? String.fromCharCode(Math.floor(Math.random() * 93) + 33) : ' ';
+                        }
+                        printToTerminal(line, false, "text-emerald-500 font-bold tracking-widest");
+                        count++;
+                        if (count > 15) {
+                            clearInterval(interval);
+                            printToTerminal("Cyber sweep completed.", false, "text-brand-cyan");
+                        }
+                    }, 100);
+                    break;
+                default:
+                    printToTerminal(`Command '${cmd}' not recognized. Type 'help' for valid options.`, false, 'text-red-400');
+            }
+        }
+    </script>
+</body>
+</html>
